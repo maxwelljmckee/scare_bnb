@@ -1,0 +1,2 @@
+CREATE USER scare_bnb_app WITH CREATEDB PASSWORD '123';
+CREATE DATABASE scare_bnb_dev WITH OWNER scare_bnb_app;

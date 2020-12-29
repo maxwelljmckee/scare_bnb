@@ -1,9 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
-
-import LogoutButton from '../auth/LogoutButton';
-import LoginFormModal from '../auth/LoginFormModal'
-import SignUpFormModal from '../auth/SignUpFormModal'
+import { Link } from 'react-router-dom';
 
 import UserMenu from './UserMenu'
 
@@ -12,16 +8,21 @@ import './NavBar.css'
 const NavBar = ({ authenticated, setAuthenticated }) => {
   return (
     <nav>
-      <Link to="/"> <img src="./logos/logo-full-black.png" /> </Link>
+      <div className="navbar__left">
+        <Link to="/"> <img className="navbar__logo" src="./logos/logo-full-black.png" /> </Link>
 
-      <div> Search Bar Placeholder</div>
+      </div>
+      <div className="navbar__center">
+        <div style={{ width: "300px", height: "40px", borderRadius: "20px", border: "1px solid black", textAlign: "center" }}> Search Bar Placeholder</div>
 
-      <button> Become a host </button>
+      </div>
+      <div className="navbar__right">
+        <Link className="navbar__link" to="/create-house">
+          Become a host
+        </Link>
 
-      <UserMenu authenticated={authenticated} setAuthenticated={setAuthenticated} />
-
-
-
+        <UserMenu authenticated={authenticated} setAuthenticated={setAuthenticated} />
+      </div>
     </nav>
   );
 }

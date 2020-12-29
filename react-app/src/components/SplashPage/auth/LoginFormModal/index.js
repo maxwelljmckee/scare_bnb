@@ -21,7 +21,10 @@ function LoginFormDialog(props) {
 
   return (
     <>
-      <div onClick={handleClickOpen}>Log In</div>
+      <div
+        className="usermenu__option"
+        onClick={handleClickOpen}
+      >Log In</div>
       <Dialog
         open={open}
         onClose={handleClose}

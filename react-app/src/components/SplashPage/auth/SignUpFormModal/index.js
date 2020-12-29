@@ -20,7 +20,12 @@ function SignUpFormDialog(props) {
 
   return (
     <>
-      <div onClick={handleClickOpen}>Sign Up</div>
+      <div
+        className="usermenu__option"
+        onClick={handleClickOpen}
+      >
+        Sign Up
+      </div>
       <Dialog
         open={open}
         onClose={handleClose}

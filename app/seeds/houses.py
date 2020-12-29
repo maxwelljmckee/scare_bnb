@@ -7,7 +7,7 @@ def seed_houses():
     demo = User(username='Demo', email='demo@aa.io',
                 password='password')
 
-    
+
 
     db.session.add(demo)
 
@@ -18,5 +18,5 @@ def seed_houses():
 # TRUNCATE Removes all the data from the table, and resets
 # the auto incrementing primary key
 def undo_users():
-    db.session.execute('TRUNCATE users;')
+    db.session.execute('TRUNCATE houses;')
     db.session.commit()

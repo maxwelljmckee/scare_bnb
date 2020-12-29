@@ -28,7 +28,7 @@ def seed_tag():
     ghoul = Tag(tag_name="ghoul")
 
 
-    tags = [haunted_mansion, haunted_house, horror, paranormal, ghost, paranormal_investigator,spooky_season, fright_fest, dead_bride, haunted_house, abandoned, american_horror_story, soldier, bride, dead, afterlife, cemetary, murder, ghoul]
+    tags = [haunted_mansion, horror, paranormal, ghost, paranormal_investigator,spooky_season, fright_fest, dead_bride, haunted_house, abandoned, american_horror_story, soldier, bride, dead, afterlife, cemetary, murder, ghoul]
 
     for tag in tags:
         db.session.add(tag)

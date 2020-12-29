@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
-import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
-import User from "./components/User";
+
+import NavBar from "./components/SplashPage/NavBar";
+import HomePage from "./components/SplashPage/HomePage"
+import ProtectedRoute from "./components/SplashPage/auth/ProtectedRoute";
+
 import { authenticate } from "./services/auth";
 
 function App() {
@@ -27,20 +28,20 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} />
+      <Route path="/" exact={true}>
+        <HomePage></HomePage>
+      </Route>
 
 
-      {/* <Route path="/sign-up" exact={true}>
-        <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
-      </Route> */}
-      <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
+      {/* <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
         <UsersList />
-      </ProtectedRoute>
-      <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
+      </ProtectedRoute> */}
+      {/* <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
         <User />
-      </ProtectedRoute>
-      <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
+      </ProtectedRoute> */}
+      {/* <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
         <h1>My Home Page</h1>
-      </ProtectedRoute>
+      </ProtectedRoute> */}
     </BrowserRouter>
   );
 }

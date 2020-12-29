@@ -9,6 +9,8 @@ from .models import *
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 
+from .api.utils.awsS3 import upload_file_to_s3
+
 from .seeds import seed_commands
 
 from .config import Config

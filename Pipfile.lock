@@ -1,11 +1,7 @@
 {
     "_meta": {
         "hash": {
-<<<<<<< HEAD
-            "sha256": "6967b8c32ce6b2b84ba81a46e93df31cf600204f0e4f9b2a8f4f4f0806d319f2"
-=======
-            "sha256": "5c8e25a8a80e32d2d92baa84dd45978ac903380fdb4af3e0c53573583bbbc52d"
->>>>>>> main
+            "sha256": "1d757e3b4b286d3922e2b2f45f11af9a8c2f1865078a3d347483c818e2e5432a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -212,15 +208,12 @@
         "pyjwt": {
             "hashes": [
                 "sha256:5c2ff2eb27d7e342dfc3cafcc16412781f06db2690fbef81922b0172598f085b",
-                "sha256:7a2b271c6dac2fda9e0c33d176c4253faba2c6c6b3a99c7f28a32c3c97522779"
+                "sha256:5c6eca3c2940464d106b99ba83b00c6add741c9becaec087fb7ccdefea71350e",
+                "sha256:7a2b271c6dac2fda9e0c33d176c4253faba2c6c6b3a99c7f28a32c3c97522779",
+                "sha256:8d59a976fb773f3e6a39c85636357c4f0e242707394cadadd9814f5cbaa20e96"
             ],
-<<<<<<< HEAD
-            "markers": "python_version >= '3.6'",
-            "version": "==2.0.0"
-=======
             "index": "pypi",
             "version": "==1.7.1"
->>>>>>> main
         },
         "python-dateutil": {
             "hashes": [

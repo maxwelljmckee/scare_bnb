@@ -34,9 +34,6 @@ def upgrade():
     sa.Column('num_beds', sa.Integer(), nullable=False),
     sa.Column('num_baths', sa.Integer(), nullable=False),
     sa.Column('price', sa.Integer(), nullable=False),
-    sa.Column('smoking', sa.Boolean(), nullable=False),
-    sa.Column('pets_allowed', sa.Boolean(), nullable=False),
-    sa.Column('wifi', sa.Boolean(), nullable=False),
     sa.ForeignKeyConstraint(['host_id'], ['users.id'], ),
     sa.ForeignKeyConstraint(['state_id'], ['states.id'], ),
     sa.PrimaryKeyConstraint('id')

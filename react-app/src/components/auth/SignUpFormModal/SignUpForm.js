@@ -4,6 +4,9 @@ import { signUp } from '../../../services/auth';
 
 const SignUpForm = ({ authenticated, setAuthenticated }) => {
   const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [bio, setBio] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
@@ -11,15 +14,23 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await signUp(username, email, password);
+      const user = await signUp(firstName, lastName, bio, email, password);
       if (!user.errors) {
         setAuthenticated(true);
       }
     }
   };
 
-  const updateUsername = (e) => {
-    setUsername(e.target.value);
+  const updateFirstName = (e) => {
+    setFirstName(e.target.value);
+  };
+
+  const updateLastName = (e) => {
+    setLastName(e.target.value);
+  };
+
+  const updateBio = (e) => {
+    setBio(e.target.value);
   };
 
   const updateEmail = (e) => {
@@ -41,13 +52,30 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
   return (
     <form onSubmit={onSignUp}>
       <div>
-        <label>User Name</label>
+        <label>First Name</label>
         <input
           type="text"
-          name="username"
-          onChange={updateUsername}
-          value={username}
+          name="firstName"
+          onChange={updateFirstName}
+          value={firstName}
         ></input>
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input
+          type="text"
+          name="lastName"
+          onChange={updateLastName}
+          value={lastName}
+        ></input>
+      </div>
+      <div>
+        <label>Bio</label>
+        <textarea
+          name="bio"
+          onChange={updateBio}
+          value={bio}
+        ></textarea>
       </div>
       <div>
         <label>Email</label>

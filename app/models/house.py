@@ -22,6 +22,10 @@ class House(db.Model):
     smoking = db.Column(db.Boolean, nullable=False)
     pets_allowed = db.Column(db.Boolean, nullable=False)
     wifi = db.Column(db.Boolean, nullable=False)
+    latitude = db.Column(db.Float, nullable=True)
+    longitude = db.Column(db.Float, nullable=True)
+
+
 
     owner = db.relationship('User', back_populates='houses')
     reviews = db.relationship('Review', back_populates='houses')

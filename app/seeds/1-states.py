@@ -1,7 +1,7 @@
 from werkzeug.security import generate_password_hash
 from app.models import db, State
 
-def seed_state():
+def seed_states():
     """
     Model:
     State(state_name="")

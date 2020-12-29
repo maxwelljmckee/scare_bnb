@@ -13,7 +13,7 @@ def seed_users():
     Mathias = User(last_name="Anderson", first_name="Mathias", bio="A retired Antarctic explorer, who loves to scare the shit out of people using sock puppets and animal balloons.", email="mathias@aa.io", hashed_password=generate_password_hash(123), is_host=False)
     Max = User(last_name="McKee", first_name="Max", bio="Dork Supreme. I always serve mashed potatos using an ice cream scoop.", email="max@aa.io", hashed_password=generate_password_hash(123), is_host=False)
     Sam = User(last_name="Stark", first_name="Sam", bio="Reppin the long lost city of Atlantis. Former American Ninja warrior contestant.", email="sam@aa.io", hashed_password=generate_password_hash(123), is_host=False)
-    Bryce = User(last_name="Morgan", first_name="Bryce", bio="Supreme and benevolent leader of the Python Flask module.", email="", hashed_password=generate_password_hash(123), is_host=False)
+    Bryce = User(last_name="Morgan", first_name="Bryce", bio="Supreme and benevolent leader of the Python Flask module.", email="bryce@aa.io", hashed_password=generate_password_hash(123), is_host=False)
     Demo = User(last_name="User", first_name="Demo", bio="Demo User", email="demo@aa.io", hashed_password=generate_password_hash(123), is_host=False)
 
 

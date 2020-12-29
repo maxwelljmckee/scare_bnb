@@ -27,7 +27,6 @@ function LoginFormDialog(props) {
         onClose={handleClose}
       >
         <DialogContent>
-
           <LoginForm {...props} />
         </DialogContent>
       </Dialog>

@@ -26,6 +26,7 @@ class House(db.Model):
     owner = db.relationship('User', back_populates='houses')
     reviews = db.relationship('Review', back_populates='houses')
     bookings = db.relationship('Booking', back_populates='houses')
+    state = db.relationship('State', back_populates='houses')
 
     def is_booked(self):
         # check self.bookings against dates

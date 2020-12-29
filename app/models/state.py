@@ -6,3 +6,5 @@ class State(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     state_name = db.Column(db.String(2), nullable=False)
+
+    houses = db.relationship('House', back_populates='state')

@@ -6,7 +6,7 @@ from flask_login import UserMixin
 class User(db.Model, UserMixin):
   __tablename__ = 'users'
 
-  id = db.Column(db.Integer, primary_key=True)
+  id = db.Column(db.Integer, primary_key=True, nullable=False)
   last_name = db.Column(db.String(50), nullable=False)
   first_name = db.Column(db.String(50), nullable=False)
   bio = db.Column(db.String(300), nullable=True)
@@ -14,6 +14,10 @@ class User(db.Model, UserMixin):
   hashed_password = db.Column(db.String(255), nullable=False)
   profile_pic_url = db.Column(db.String(500), nullable=True)
   is_host = db.Column(db.Boolean, nullable=False)
+
+  houses = db.relationship('House', back_populates='owner')
+  reviews = db.relationship('Review', back_populates='user')
+  bookings = db.relationship('Booking', back_populates='guest')
 
 
   @property

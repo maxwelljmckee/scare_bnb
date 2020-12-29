@@ -13,4 +13,4 @@ class Review(db.Model):
     updated_at = db.Column(db.DateTime, nullable=False)
 
     house = db.relationship('House', back_populates='reviews')
-    owner = db.relationship('User', back_populates='reviews')
+    user = db.relationship('User', back_populates='reviews')

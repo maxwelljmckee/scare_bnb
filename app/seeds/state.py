@@ -7,9 +7,14 @@ def seed_state():
     State(state_name="")
 
     """
-    michigan = State(state_name="Michigan")
+    michigan = State(state_id="MI", state_name="Michigan")
     states = [michigan]
+
     for state in states:
         db.session.add(state)
 
+    db.session.commit()
+
+def undo_states():
+    db.session.execute('TRUNCATE states;')
     db.session.commit()

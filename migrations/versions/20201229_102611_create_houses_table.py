@@ -25,7 +25,7 @@ def upgrade():
     sa.Column('street_1', sa.String(length=100), nullable=False),
     sa.Column('street_2', sa.String(length=100), nullable=True),
     sa.Column('city', sa.String(length=50), nullable=False),
-    sa.Column('state_id', sa.Integer(), nullable=False),
+    sa.Column('state_id', sa.String(length=2), nullable=False),
     sa.Column('postal_code', sa.String(length=5), nullable=False),
     sa.Column('house_pic_url', sa.String(length=500), nullable=True),
     sa.Column('description', sa.Text(), nullable=False),
@@ -34,9 +34,6 @@ def upgrade():
     sa.Column('num_beds', sa.Integer(), nullable=False),
     sa.Column('num_baths', sa.Integer(), nullable=False),
     sa.Column('price', sa.Integer(), nullable=False),
-    sa.Column('smoking', sa.Boolean(), nullable=False),
-    sa.Column('pets_allowed', sa.Boolean(), nullable=False),
-    sa.Column('wifi', sa.Boolean(), nullable=False),
     sa.ForeignKeyConstraint(['host_id'], ['users.id'], ),
     sa.ForeignKeyConstraint(['state_id'], ['states.id'], ),
     sa.PrimaryKeyConstraint('id')

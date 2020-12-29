@@ -14,4 +14,4 @@ class Booking(db.Model):
     updated_at = db.Column(db.DateTime, nullable=False)
 
     house = db.relationship('House', back_populates='bookings')
-    owner = db.relationship('User', back_populates='bookings')
+    guest = db.relationship('User', back_populates='bookings')

@@ -9,6 +9,13 @@ house_tags = db.Table('house_tags',
                           'tags.id'), primary_key=True)
                       )
 
+house_amenities = db.Table('house_amenities',
+                      db.Column('house_id', db.Integer, db.ForeignKey(
+                          'houses.id'), primary_key=True),
+                      db.Column('amenity_id', db.Integer, db.ForeignKey(
+                          'amenities.id'), primary_key=True)
+                      )
+
 
 class House(db.Model):
     __tablename__ = 'houses'
@@ -37,6 +44,8 @@ class House(db.Model):
     bookings = db.relationship('Booking', back_populates='houses')
     state = db.relationship('State', back_populates='houses')
     tags = db.relationship('Tag', secondary=house_tags, back_populates='houses')
+    amenities = db.relationship('Amenity', secondary=house_amenities,
+                                back_populates='houses')
 
     def is_booked(self):
         # check self.bookings against dates

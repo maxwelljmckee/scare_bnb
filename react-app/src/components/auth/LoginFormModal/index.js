@@ -1,22 +1,38 @@
 // frontend/src/components/LoginFormModal/index.js
 import React, { useState } from 'react';
-import { Modal } from '../../../context/Modal';
 import LoginForm from './LoginForm';
 
-function LoginFormModal() {
-  const [showModal, setShowModal] = useState(false);
+import { Dialog } from '@material-ui/core'
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
+function LoginFormDialog(props) {
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Log In</button>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          Testing
-          {/* <LoginForm /> */}
-        </Modal>
-      )}
+      <div onClick={handleClickOpen}>Log In</div>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+      >
+        <DialogContent>
+
+          <LoginForm {...props} />
+        </DialogContent>
+      </Dialog>
     </>
   );
 }
 
-export default LoginFormModal;
+export default LoginFormDialog;

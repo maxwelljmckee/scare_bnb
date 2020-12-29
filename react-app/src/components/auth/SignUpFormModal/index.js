@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import LoginForm from './LoginForm';
+import SignUpForm from './SignUpForm';
 
 import { Dialog } from '@material-ui/core'
 import DialogActions from '@material-ui/core/DialogActions';
@@ -8,7 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-function LoginFormDialog(props) {
+function SignUpFormDialog(props) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -21,17 +20,17 @@ function LoginFormDialog(props) {
 
   return (
     <>
-      <div onClick={handleClickOpen}>Log In</div>
+      <div onClick={handleClickOpen}>Sign Up</div>
       <Dialog
         open={open}
         onClose={handleClose}
       >
         <DialogContent>
-          <LoginForm {...props} />
+          <SignUpForm {...props} />
         </DialogContent>
       </Dialog>
     </>
   );
 }
 
-export default LoginFormDialog;
+export default SignUpFormDialog;

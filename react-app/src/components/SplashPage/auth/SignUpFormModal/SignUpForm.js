@@ -2,13 +2,20 @@ import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../../services/auth';
 
-const SignUpForm = ({ authenticated, setAuthenticated }) => {
+import FormInput from '../../../FormFields/FormInput'
+import FormInputField from '../../../FormFields/FormInputField'
+import ImageInput from '../../../FormFields/ImageCropper/ImageInput'
+
+import "./SignUpForm.css"
+
+const SignUpForm = ({ authenticated, setAuthenticated, onClose }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [bio, setBio] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [profilePic, setProfilePic] = useState(null);
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -19,6 +26,17 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
       }
     }
   };
+
+  const onHost = async (e) => {
+    e.preventDefault();
+    if (password === repeatPassword) {
+      const user = await signUp(firstName, lastName, bio, email, password);
+      if (!user.errors) {
+        setAuthenticated(true);
+        // REDIRECT TO HOSTING FORM
+      }
+    }
+  }
 
   const updateFirstName = (e) => {
     setFirstName(e.target.value);
@@ -49,62 +67,27 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        <label>First Name</label>
-        <input
-          type="text"
-          name="firstName"
-          onChange={updateFirstName}
-          value={firstName}
-        ></input>
+    <form className="signup-form" onSubmit={onSignUp}>
+      <div className="signup-form__top" onClick={onClose}>
+        <div className="signup-form__close"><i class="fas fa-times"></i></div>
+        <div>Sign up</div>
       </div>
-      <div>
-        <label>Last Name</label>
-        <input
-          type="text"
-          name="lastName"
-          onChange={updateLastName}
-          value={lastName}
-        ></input>
+      <div className="signup-form__left">
+        <FormInput name="First Name" required={true} type="text" value={firstName} onChange={updateFirstName} />
+        <FormInput name="Last Name" required={true} type="text" value={lastName} onChange={updateLastName} />
+        <FormInput name="Email" required={true} type="text" value={email} onChange={updateEmail} />
+        <FormInput name="Password" required={true} type="text" value={password} onChange={updatePassword} />
+        <FormInput name="Confirm Password" required={true} type="text" value={repeatPassword} onChange={updateRepeatPassword} />
       </div>
-      <div>
-        <label>Bio</label>
-        <textarea
-          name="bio"
-          onChange={updateBio}
-          value={bio}
-        ></textarea>
+      <div className="signup-form__right">
+        <h2>Profile Picture</h2>
+        <ImageInput aspect={1} onChange={setProfilePic} />
       </div>
-      <div>
-        <label>Email</label>
-        <input
-          type="text"
-          name="email"
-          onChange={updateEmail}
-          value={email}
-        ></input>
+      <div className="signup-form__bottom">
+        <FormInputField name="Bio" required={true} type="text" value={bio} onChange={updateBio} />
+        <div className="signup-form__button" onClick={onHost}>Become a Host</div>
+        <div className="signup-form__button" onClick={onSignUp}>Sign Up</div>
       </div>
-      <div>
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type="password"
-          name="repeat_password"
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type="submit">Sign Up</button>
     </form>
   );
 };

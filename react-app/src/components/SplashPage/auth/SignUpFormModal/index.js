@@ -30,9 +30,9 @@ function SignUpFormDialog(props) {
         open={open}
         onClose={handleClose}
       >
-        <DialogContent>
-          <SignUpForm {...props} />
-        </DialogContent>
+        {/* <DialogContent> */}
+        <SignUpForm {...props} onClose={handleClose} />
+        {/* </DialogContent> */}
       </Dialog>
     </>
   );

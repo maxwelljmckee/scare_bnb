@@ -1,0 +1,35 @@
+.signup-form {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+
+  margin: 0px 0px 50px;
+  padding: 20px;
+
+  /* min-width: 600px;
+  min-height: auto; */
+  /* max-height: 90vh; */
+
+  display: grid;
+  grid-template-columns: 250px 300px;
+  grid-template-rows: 30px 300px 100px;
+  grid-template-areas:
+                      "top top"
+                      "left right"
+                      "bottom bottom";
+}
+
+.signup-form__top{
+  grid-area: top;
+  margin:none;
+
+  font-size: large;
+}
+.signup-form__left{
+  grid-area: left;
+}
+.signup-form__right{
+  grid-area: right;
+}
+.signup-form__bottom{
+  grid-area: bottom;
+}

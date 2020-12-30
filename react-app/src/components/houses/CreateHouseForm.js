@@ -24,7 +24,15 @@ const CreateHouseForm = () => {
 
   useEffect(() => {
     // fetch (united) states from db and store in 'allStates' var
-    // fetch('/houses/states')
+    const getStates = async () => {
+      const res = fetch('/houses/states')
+      const allStates = await res.json()
+      console.log(allStates)
+
+    }
+    getStates()
+
+
   }, [])
 
   const handleSubmit = () => {

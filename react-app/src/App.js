@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import NavBar from "./components/SplashPage/NavBar";
 import HomePage from "./components/SplashPage/HomePage"
 import ProtectedRoute from "./components/SplashPage/auth/ProtectedRoute";
 
 import { authenticate } from "./services/auth";
+import ListingsIdx from './components/houses/ListingsIdx'
+import CreateHouseForm from './components/houses/CreateHouseForm'
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -27,21 +29,18 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} />
-      <Route path="/" exact={true}>
-        <HomePage></HomePage>
-      </Route>
-
-
-      {/* <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
-        <UsersList />
-      </ProtectedRoute> */}
-      {/* <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
-        <User />
-      </ProtectedRoute> */}
-      {/* <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-        <h1>My Home Page</h1>
-      </ProtectedRoute> */}
+      <Switch>
+        <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} />
+        <Route path="/" exact={true}>
+          <HomePage></HomePage>
+        </Route>
+        <Route path="/listings">
+          <ListingsIdx />
+        </Route>
+        <Route path="/houses/create">
+          <CreateHouseForm />
+        </Route>
+      </Switch>
     </BrowserRouter>
   );
 }

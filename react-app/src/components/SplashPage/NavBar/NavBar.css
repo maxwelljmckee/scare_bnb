@@ -8,6 +8,8 @@ nav {
   width: 100%;
 
   background-color: white;
+
+  box-shadow: 0 0 20px 5px rgba(120, 120, 120, .1);
 }
 
 .navbar__left {

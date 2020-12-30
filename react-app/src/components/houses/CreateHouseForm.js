@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 
 const CreateHouseForm = () => {
@@ -21,13 +21,14 @@ const CreateHouseForm = () => {
   const [numBeds, setNumBeds] = useState(1);
   const [numBaths, setNumBaths] = useState(1);
   const [price, setPrice] = useState(0)
+  const { userId }  = useParams();
 
   useEffect(() => {
     // fetch (united) states from db and store in 'allStates' var
     const getStates = async () => {
-      const res = fetch('/houses/states')
+      const res = await fetch('/api/houses/states')
       const allStates = await res.json()
-      console.log(allStates)
+      console.log(userId)
 
     }
     getStates()
@@ -35,18 +36,31 @@ const CreateHouseForm = () => {
 
   }, [])
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     // create object from state
-    // newHouse = {
-    //   name,
-    // ...
-    // }
+    const newHouse = {
+      name,
+      street1,
+      street2,
+      city,
+      state,
+      postalCode,
+      housePicUrl,
+      description,
+      maxGuests,
+      numBedrooms,
+      numBaths,
+      price,
+
+
+    }
     // send object to flask backend
-    // fetch('/path', {
-    //   method:
-    //   body: newHouse
-    // })
-    // history.push('/')
+    const res = fetch('/api/houses/register', {
+      method: "POST",
+      body: newHouse,
+      userId,
+    })
+    history.push('/')
     return
   }
 

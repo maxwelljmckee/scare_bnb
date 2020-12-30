@@ -5,6 +5,7 @@ from app.forms import house_create_form
 houses_routes = Blueprint('houses', __name__)
 
 
+
 @houses_routes.route('/', method='GET')
 def get_houses():
     request.json.get('name', None)
@@ -39,3 +40,17 @@ def create_house():
     db.session.add(house)
     db.session.commit()
     return house.to_dict()
+
+
+
+
+
+
+
+
+
+# POST request
+    # request.json.get('name', None)
+    # new_house = {k: v for k, v in request.json.items() if k not in ('csrf', '')}
+    # db.session.add(new_house)
+    # db.session.commit()

@@ -7,11 +7,15 @@ def seed_states():
     State(state_name="")
 
     """
-    michigan = State(state_id="MI", state_name="Michigan")
-    states = [michigan]
+    # michigan = State(id="MI", state_name="Michigan")
+    # oklahoma = State(id="OK", state_name="Oklahoma")
 
-    for state in states:
-        db.session.add(state)
+    # states = [oklahoma]
+
+    state = State(state_name="Michigan")
+
+    # for state in states:
+    db.session.add(state)
 
     db.session.commit()
 

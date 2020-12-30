@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 
 const CreateHouseForm = () => {
+  const history = useHistory()
   const [errors, setErrors] = useState([]);
   const [allStates, setAllStates] = useState([]);
 
@@ -14,7 +16,7 @@ const CreateHouseForm = () => {
   const [postalCode, setPostalCode] = useState('');
   const [housePicUrl, setHousePicUrl] = useState('');
   const [description, setDescription] = useState('');
-  const [maxGuests, setMaxGuests] = useState(0);
+  const [maxGuests, setMaxGuests] = useState(1);
   const [numBedrooms, setNumBedrooms] = useState(1);
   const [numBeds, setNumBeds] = useState(1);
   const [numBaths, setNumBaths] = useState(1);
@@ -25,6 +27,17 @@ const CreateHouseForm = () => {
   })
 
   const handleSubmit = () => {
+    // create object from state
+    // newHouse = {
+    //   name,
+    // ...
+    // }
+    // send object to flask backend
+    // fetch('/path', {
+    //   method:
+    //   body: newHouse
+    // })
+    // history.push('/')
     return
   }
 
@@ -134,7 +147,6 @@ const CreateHouseForm = () => {
         <input
           id='num_baths'
           name='num_baths'
-          placeholder='Max Guests'
           type='number'
           value={numBaths}
           onChange={(e) => setNumBaths(e.target.value)}
@@ -145,7 +157,6 @@ const CreateHouseForm = () => {
         <input
           id='price'
           name='price'
-          placeholder='Max Guests'
           type='number'
           value={price}
           onChange={(e) => setPrice(e.target.value)}

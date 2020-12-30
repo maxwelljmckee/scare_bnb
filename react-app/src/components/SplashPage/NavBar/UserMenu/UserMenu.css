@@ -20,7 +20,6 @@
 
 }
 
-
 .usermenu__dropdown_button:hover {
   box-shadow: 0 0 5px rgba(0, 0 , 0, .4);
   cursor: pointer;
@@ -29,6 +28,11 @@
 
 .usermenu__dropdown_button *{
   margin: 5px;
+}
+
+.usermenu__profile-pic {
+  width: 20px;
+  border-radius: 50px;
 }
 
 .usermenu__dropdown--hidden {

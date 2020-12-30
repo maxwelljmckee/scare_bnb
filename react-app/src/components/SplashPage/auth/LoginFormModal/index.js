@@ -21,16 +21,18 @@ function LoginFormDialog(props) {
 
   return (
     <>
-      <div
-        className="usermenu__option"
-        onClick={handleClickOpen}
-      >Log In</div>
+      {!props.authenticated && (
+        <div
+          className="usermenu__option"
+          onClick={handleClickOpen}
+        >Log In</div>
+      )}
       <Dialog
         open={open}
         onClose={handleClose}
       >
         <DialogContent>
-          <LoginForm {...props} />
+          <LoginForm {...props} onClose={handleClose} />
         </DialogContent>
       </Dialog>
     </>

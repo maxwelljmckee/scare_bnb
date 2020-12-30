@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SignUpForm from './SignUpForm';
 
 import { Dialog } from '@material-ui/core'
@@ -20,12 +20,14 @@ function SignUpFormDialog(props) {
 
   return (
     <>
-      <div
-        className="usermenu__option"
-        onClick={handleClickOpen}
-      >
-        Sign Up
-      </div>
+      {!props.authenticated && (
+        <div
+          className="usermenu__option"
+          onClick={handleClickOpen}
+        >
+          Sign Up
+        </div>
+      )}
       <Dialog
         open={open}
         onClose={handleClose}

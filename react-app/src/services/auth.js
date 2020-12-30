@@ -1,5 +1,18 @@
 import axios from 'axios'
 
+// const pythonUserToJSUser = (pyUser) => {
+//   let JSUser = {
+//     bio: pyUser.bio,
+//     email: pyUser.email,
+//     firstName: pyUser.first_name,
+//     lastName: pyUser.last_name,
+//     id: pyUser.id,
+//     isHost: pyUser.is_host,
+//     profilePicUrl: pyUser.profile_pic_url
+//   }
+//   return JSUser
+// }
+
 export const authenticate = async () => {
   const response = await fetch('/api/auth/', {
     headers: {
@@ -55,5 +68,5 @@ export const signUp = async (user) => {
 
   let response = await axios.post('/api/auth/signup', formData, config)
 
-  return response;
+  return response.data;
 }

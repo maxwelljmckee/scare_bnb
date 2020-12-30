@@ -21,6 +21,7 @@ const SignUpForm = ({ authenticated, setAuthenticated, onClose }) => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    e.stopPropagation();
     if (password === repeatPassword) {
       let newUser = {firstName, lastName, bio, email, password, profilePic}
       const user = await signUp(newUser);
@@ -28,6 +29,12 @@ const SignUpForm = ({ authenticated, setAuthenticated, onClose }) => {
         setAuthenticated(user);
         onClose()
       }
+      else {
+        setErrors(user.errors)
+      }
+    }
+    else {
+      setErrors(["Passwords do not match"])
     }
   };
 
@@ -38,6 +45,9 @@ const SignUpForm = ({ authenticated, setAuthenticated, onClose }) => {
       if (!user.errors) {
         setAuthenticated(true);
         // REDIRECT TO HOSTING FORM
+      }
+      else {
+        setErrors(user.errors)
       }
     }
   }
@@ -72,22 +82,24 @@ const SignUpForm = ({ authenticated, setAuthenticated, onClose }) => {
 
   return (
     <form className="signup-form" onSubmit={onSignUp}>
-      <div>
-        {errors.map((error) => (
-          <div>{error}</div>
-        ))}
-      </div>
       <div className="signup-form__top">
         <div className="signup-form__close" onClick={onClose}><i className="fas fa-times"></i></div>
         <h1>Sign up</h1>
         <div style={{ width: "40px" }} />
       </div>
+      {errors.length !== 0 && (
+        <div className="signup-form__errors">
+          {errors.map((error) => (
+            <div key={error}>{error}</div>
+          ))}
+        </div>
+      )}
       <div className="signup-form__left">
-        <FormInput name="First Name" required={true} type="text" value={firstName} onChange={updateFirstName} />
-        <FormInput name="Last Name" required={true} type="text" value={lastName} onChange={updateLastName} />
-        <FormInput name="Email" required={true} type="text" value={email} onChange={updateEmail} />
-        <FormInput name="Password" required={true} type="text" value={password} onChange={updatePassword} />
-        <FormInput name="Confirm Password" required={true} type="text" value={repeatPassword} onChange={updateRepeatPassword} />
+        <FormInput name="First Name*" required={true} type="text" value={firstName} onChange={updateFirstName} />
+        <FormInput name="Last Name*" required={true} type="text" value={lastName} onChange={updateLastName} />
+        <FormInput name="Email*" required={true} type="text" value={email} onChange={updateEmail} />
+        <FormInput name="Password*" required={true} type="password" value={password} onChange={updatePassword} />
+        <FormInput name="Confirm Password*" required={true} type="password" value={repeatPassword} onChange={updateRepeatPassword} />
       </div>
       <div className="signup-form__right">
         <h2>Profile Picture</h2>

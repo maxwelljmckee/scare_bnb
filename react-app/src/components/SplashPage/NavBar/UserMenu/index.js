@@ -30,8 +30,6 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
     }
   }
 
-  console.log(authenticated)
-
   return (
     <div className="usermenu__container">
       <div ref={anchorRef} className="usermenu__dropdown_button" onClick={openMenu}>
@@ -39,27 +37,24 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
         {!authenticated && (
           <i className="fas fa-user-circle"></i>
         )}
-        {/* {authenticated && (
-          <img src={}
-        )} */}
+        {authenticated && (
+          <img className="usermenu__profile-pic" src={authenticated.profile_pic_url} />
+        )}
       </div>
       <div className={open ? "usermenu__dropdown" : "usermenu__dropdown--hidden"}>
-        {!authenticated && (
-          <>
-            <LoginFormModal
-              authenticated={authenticated}
-              setAuthenticated={setAuthenticated}
-            />
+        <>
+          <LoginFormModal
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+          />
 
-            <SignUpFormModal
-              authenticated={authenticated}
-              setAuthenticated={setAuthenticated}
-            />
+          <SignUpFormModal
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+          />
 
-            <hr />
-          </>
-
-        )}
+          <hr />
+        </>
 
         <div className="usermenu__option">
           Host a home

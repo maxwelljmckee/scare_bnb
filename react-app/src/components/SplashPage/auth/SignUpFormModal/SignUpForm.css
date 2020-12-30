@@ -1,0 +1,87 @@
+.signup-form {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+
+  margin: 0px 0px 80px;
+  padding: 20px;
+
+  /* min-width: 600px;
+  min-height: auto; */
+  /* max-height: 90vh; */
+
+  display: grid;
+  grid-template-columns: 250px 300px;
+  grid-template-rows: 40px auto 300px 100px;
+  grid-template-areas:
+                      "top top"
+                      "error error"
+                      "left right"
+                      "bottom bottom";
+}
+
+.signup-form__top{
+  grid-area: top;
+  margin:none;
+
+  width:100%;
+
+  font-size: large;
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.signup-form__top h1 {
+  font-size: 20px;
+
+}
+
+.signup-form__close{
+  cursor: pointer;
+}
+
+.signup-form__left{
+  grid-area: left;
+}
+
+.signup-form__right{
+  grid-area: right;
+}
+
+.signup-form__right > h2{
+  margin: 10px 20px 0;
+  font-size: 14px;
+  padding:none;
+}
+
+.signup-form__bottom{
+  grid-area: bottom;
+}
+
+.signup-form__bottom-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.signup-form__button {
+  font-size: 14px;
+
+  border: 2px solid lightgrey;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.signup-form__button:hover {
+  border-color: black;
+  cursor: pointer;
+}
+
+.signup-form__errors {
+  grid-area: error;
+  color: darkred;
+  background: rgba(255, 125, 125, .2);
+  border-radius: 10px;
+  border: 1px solid darkred;
+  padding: 10px;
+}

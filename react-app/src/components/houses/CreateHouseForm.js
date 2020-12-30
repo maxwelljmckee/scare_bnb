@@ -23,8 +23,9 @@ const CreateHouseForm = () => {
   const [price, setPrice] = useState(0)
 
   useEffect(() => {
-    // fetch states from db and store in 'allStates' var
-  })
+    // fetch (united) states from db and store in 'allStates' var
+    // fetch('/houses/states')
+  }, [])
 
   const handleSubmit = () => {
     // create object from state

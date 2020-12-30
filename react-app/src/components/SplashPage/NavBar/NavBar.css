@@ -10,6 +10,8 @@ nav {
   background-color: white;
 
   box-shadow: 0 0 20px 5px rgba(120, 120, 120, .1);
+
+  overflow: hidden;
 }
 
 .navbar__left {

@@ -56,6 +56,7 @@ class House(db.Model):
         return {
             "id": self.id,
             "host_id": self.host_id,
+            "host": self.owner.to_dict(),
             "name": self.name,
             "street_1": self.street_1,
             "street_2": self.street_2,
@@ -70,5 +71,10 @@ class House(db.Model):
             "num_baths": self.num_baths,
             "price": self.price,
             "latitude": self.latitude,
-            "longitude": self.longitude
+            "longitude": self.longitude,
+            # "reviews": self.reviews.to_dict(),
+            # "bookings": self.bookings.to_dict(),
+            # "tags": self.tags.to_dict(),
+            "amenities": [x.to_dict() for x in self.amenities]
+
         }

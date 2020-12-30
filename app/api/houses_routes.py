@@ -27,4 +27,4 @@ def get_house_details(id):
     house = House.query.get(id)
     if house:
         return house.to_dict()
-    return {'errors': 'The requested house does not exist'}, 404
+    return {'errors': ['The requested house does not exist']}, 404

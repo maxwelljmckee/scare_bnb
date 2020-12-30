@@ -15,7 +15,7 @@ function App() {
     (async () => {
       const user = await authenticate();
       if (!user.errors) {
-        setAuthenticated(true);
+        setAuthenticated(user);
       }
       setLoaded(true);
     })();

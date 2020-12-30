@@ -22,9 +22,11 @@ const SignUpForm = ({ authenticated, setAuthenticated, onClose }) => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await signUp(firstName, lastName, bio, email, password, profilePic);
+      let newUser = {firstName, lastName, bio, email, password, profilePic}
+      const user = await signUp(newUser);
       if (!user.errors) {
-        setAuthenticated(true);
+        setAuthenticated(user);
+        onClose()
       }
     }
   };
@@ -32,7 +34,7 @@ const SignUpForm = ({ authenticated, setAuthenticated, onClose }) => {
   const onHost = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await signUp(firstName, lastName, bio, email, password);
+      const user = await signUp(firstName, lastName, bio, email, password, profilePic);
       if (!user.errors) {
         setAuthenticated(true);
         // REDIRECT TO HOSTING FORM
@@ -76,7 +78,7 @@ const SignUpForm = ({ authenticated, setAuthenticated, onClose }) => {
         ))}
       </div>
       <div className="signup-form__top">
-        <div className="signup-form__close" onClick={onClose}><i class="fas fa-times"></i></div>
+        <div className="signup-form__close" onClick={onClose}><i className="fas fa-times"></i></div>
         <h1>Sign up</h1>
         <div style={{ width: "40px" }} />
       </div>

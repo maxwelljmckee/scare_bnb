@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export const authenticate = async () => {
   const response = await fetch('/api/auth/', {
     headers: {
@@ -31,19 +33,27 @@ export const logout = async () => {
 };
 
 
-export const signUp = async (firstName, lastName, bio, email, password) => {
-  const response = await fetch("/api/auth/signup", {
-    method: "POST",
+export const signUp = async (user) => {
+  const { profilePic, firstName, lastName, bio, password, email } = user;
+
+
+  const formData = new FormData();
+  formData.append('firstName', firstName)
+  formData.append('lastName', lastName)
+  formData.append('bio', bio)
+  formData.append('password', password)
+  formData.append('email', email)
+  if (profilePic) {
+    formData.append('profilePic', profilePic)
+  }
+
+  const config = {
     headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      firstName,
-      lastName,
-      bio,
-      email,
-      password,
-    }),
-  });
-  return await response.json();
+      "content-type": "multipart/form-data"
+    }
+  }
+
+  let response = await axios.post('/api/auth/signup', formData, config)
+
+  return response;
 }

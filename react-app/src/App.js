@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
-import LoginForm from "./components/auth/LoginForm";
-import SignUpForm from "./components/auth/SignUpForm";
-import NavBar from "./components/NavBar";
-import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
-import User from "./components/User";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+import NavBar from "./components/SplashPage/NavBar";
+import HomePage from "./components/SplashPage/HomePage"
+import ProtectedRoute from "./components/SplashPage/auth/ProtectedRoute";
+
 import { authenticate } from "./services/auth";
 import ListingsIdx from './components/houses/ListingsIdx'
 import CreateHouseForm from './components/houses/CreateHouseForm'
@@ -15,10 +14,10 @@ function App() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       const user = await authenticate();
       if (!user.errors) {
-        setAuthenticated(true);
+        setAuthenticated(user);
       }
       setLoaded(true);
     })();
@@ -30,31 +29,18 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar setAuthenticated={setAuthenticated} />
-      <Route path="/login" exact={true}>
-        <LoginForm
-          authenticated={authenticated}
-          setAuthenticated={setAuthenticated}
-        />
-      </Route>
-      <Route path="/sign-up" exact={true}>
-        <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
-      </Route>
-      <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
-        <UsersList/>
-      </ProtectedRoute>
-      <Route path="/listings">
-        <ListingsIdx/>
-      </Route>
-      <Route path="/houses/create">
-        <CreateHouseForm/>
-      </Route>
-      <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
-        <User />
-      </ProtectedRoute>
-      <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-        <h1>My Home Page</h1>
-      </ProtectedRoute>
+      <Switch>
+        <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} />
+        <Route path="/" exact={true}>
+          <HomePage></HomePage>
+        </Route>
+        <Route path="/listings">
+          <ListingsIdx />
+        </Route>
+        <Route path="/houses/create">
+          <CreateHouseForm />
+        </Route>
+      </Switch>
     </BrowserRouter>
   );
 }

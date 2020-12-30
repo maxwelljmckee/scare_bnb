@@ -9,6 +9,8 @@ import ImageInput from '../../../FormFields/ImageCropper/ImageInput'
 import "./SignUpForm.css"
 
 const SignUpForm = ({ authenticated, setAuthenticated, onClose }) => {
+  const [errors, setErrors] = useState([]);
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [bio, setBio] = useState("");
@@ -20,7 +22,7 @@ const SignUpForm = ({ authenticated, setAuthenticated, onClose }) => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await signUp(firstName, lastName, bio, email, password);
+      const user = await signUp(firstName, lastName, bio, email, password, profilePic);
       if (!user.errors) {
         setAuthenticated(true);
       }
@@ -68,6 +70,11 @@ const SignUpForm = ({ authenticated, setAuthenticated, onClose }) => {
 
   return (
     <form className="signup-form" onSubmit={onSignUp}>
+      <div>
+        {errors.map((error) => (
+          <div>{error}</div>
+        ))}
+      </div>
       <div className="signup-form__top">
         <div className="signup-form__close" onClick={onClose}><i class="fas fa-times"></i></div>
         <h1>Sign up</h1>

@@ -1,8 +1,13 @@
 nav {
+  position: fixed;
+
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 60px;
+  width: 100%;
+
+  background-color: white;
 }
 
 .navbar__left {
@@ -24,6 +29,8 @@ nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  margin: 10px;
 }
 
 .navbar__right > * {

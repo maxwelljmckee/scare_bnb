@@ -23,9 +23,9 @@ class House(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     host_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     name = db.Column(db.String(), nullable=False)
-    street_1 = db.Column(db.String(100), nullable=False)
-    street_2 = db.Column(db.String(100), nullable=True)
-    city = db.Column(db.String(50), nullable=False)
+    street_1 = db.Column(db.String(200), nullable=False)
+    street_2 = db.Column(db.String(200), nullable=True)
+    city = db.Column(db.String(100), nullable=False)
     state_id = db.Column(db.Integer, db.ForeignKey('states.id'), nullable=False)
     postal_code = db.Column(db.String(5), nullable=False)
     house_pic_url = db.Column(db.String(500), nullable=True)
@@ -35,6 +35,10 @@ class House(db.Model):
     num_beds = db.Column(db.Integer, nullable=False)
     num_baths = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Integer, nullable=False)
+    latitude = db.Column(db.Float, nullable=True)
+    longitude = db.Column(db.Float, nullable=True)
+
+
 
     owner = db.relationship('User', back_populates='houses')
     reviews = db.relationship('Review', back_populates='house')

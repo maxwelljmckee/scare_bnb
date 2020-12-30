@@ -51,3 +51,24 @@ class House(db.Model):
     def is_booked(self):
         # check self.bookings against dates
         pass
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "host_id": self.host_id,
+            "name": self.name,
+            "street_1": self.street_1,
+            "street_2": self.street_2,
+            "city": self.city,
+            "state_id": self.state_id,
+            "postal_code": self.postal_code,
+            "house_pic_url": self.house_pic_url,
+            "description": self.description,
+            "max_guests": self.max_guests,
+            "num_bedrooms": self.num_bedrooms,
+            "num_beds": self.num_beds,
+            "num_baths": self.num_baths,
+            "price": self.price,
+            "latitude": self.latitude,
+            "longitude": self.longitude
+        }

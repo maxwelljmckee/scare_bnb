@@ -42,19 +42,17 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
         )}
       </div>
       <div className={open ? "usermenu__dropdown" : "usermenu__dropdown--hidden"}>
-        <>
-          <LoginFormModal
-            authenticated={authenticated}
-            setAuthenticated={setAuthenticated}
-          />
+        <LoginFormModal
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+        />
 
-          <SignUpFormModal
-            authenticated={authenticated}
-            setAuthenticated={setAuthenticated}
-          />
+        <SignUpFormModal
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+        />
 
-          <hr />
-        </>
+        {!authenticated && (<hr />)}
 
         <div className="usermenu__option">
           Host a home
@@ -72,24 +70,3 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
     </div>
   )
 }
-
-/*
-
-      <ul>
-        <li>
-          <LoginFormModal
-            authenticated={authenticated}
-            setAuthenticated={setAuthenticated}
-          />
-        </li>
-        <li>
-          <SignUpFormModal
-            authenticated={authenticated}
-            setAuthenticated={setAuthenticated}
-          />
-          <li>
-            <LogoutButton setAuthenticated={setAuthenticated} />
-          </li>
-      </ul>
-
-*/

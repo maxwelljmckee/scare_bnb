@@ -5,11 +5,17 @@ from app.forms import house_create_form
 houses_routes = Blueprint('houses', __name__)
 
 
-@houses_routes.route('/states', method='GET')
+@houses_routes.route('/states', methods=['GET'])
 def get_all_states():
     State.query.all()
-    
 
+
+@houses_routes.route('/')
+def get_all_houses():
+    print(request)
+    all_houses = House.query.all()
+    data = [house.to_dict() for house in all_houses]
+    return jsonify(data)
 
 
 

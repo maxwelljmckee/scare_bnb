@@ -11,14 +11,15 @@ nav {
 
   box-shadow: 0 0 20px 5px rgba(120, 120, 120, .1);
 
-  overflow: hidden;
 }
 
 .navbar__left {
   width: 30%;
+  height: 60px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  overflow: hidden;
 }
 
 .navbar__center {

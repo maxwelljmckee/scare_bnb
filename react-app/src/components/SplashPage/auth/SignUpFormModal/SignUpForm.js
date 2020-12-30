@@ -68,9 +68,10 @@ const SignUpForm = ({ authenticated, setAuthenticated, onClose }) => {
 
   return (
     <form className="signup-form" onSubmit={onSignUp}>
-      <div className="signup-form__top" onClick={onClose}>
-        <div className="signup-form__close"><i class="fas fa-times"></i></div>
-        <div>Sign up</div>
+      <div className="signup-form__top">
+        <div className="signup-form__close" onClick={onClose}><i class="fas fa-times"></i></div>
+        <h1>Sign up</h1>
+        <div style={{ width: "40px" }} />
       </div>
       <div className="signup-form__left">
         <FormInput name="First Name" required={true} type="text" value={firstName} onChange={updateFirstName} />
@@ -85,8 +86,10 @@ const SignUpForm = ({ authenticated, setAuthenticated, onClose }) => {
       </div>
       <div className="signup-form__bottom">
         <FormInputField name="Bio" required={true} type="text" value={bio} onChange={updateBio} />
-        <div className="signup-form__button" onClick={onHost}>Become a Host</div>
-        <div className="signup-form__button" onClick={onSignUp}>Sign Up</div>
+        <div className="signup-form__bottom-buttons">
+          <div className="signup-form__button" onClick={onHost}>Become a Host</div>
+          <div className="signup-form__button" onClick={onSignUp}>Sign Up</div>
+        </div>
       </div>
     </form>
   );

@@ -63,7 +63,7 @@ def create_house():
         return house.to_dict()
 
         return house.to_dict()
-    return {'error': validator_errors_to_error_messages(form.errors)}
+    return {'errors': validator_errors_to_error_messages(form.errors)}
 
     # host_id = request.json.get("hostId", None)
     # name = request.json.get("name", None)

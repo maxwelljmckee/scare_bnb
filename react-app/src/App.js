@@ -38,9 +38,9 @@ function App() {
         <Route path="/listings">
           <ListingsIdx />
         </Route>
-        <Route exact={true} path="/houses/create">
+        <ProtectedRoute exact={true} path="/houses/create">
           <CreateHouseForm user={authenticated} />
-        </Route>
+        </ProtectedRoute>
         <Route path='/houses/:id'>
           <HouseProfilePage />
         </Route>

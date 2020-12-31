@@ -38,8 +38,28 @@ def get_states():
 def create_house():
     form = HouseCreateForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
+    for key in dict.keys(form.data):
+        print(key)
+        print('\t', form.data[key])
+
     if form.validate_on_submit():
-        house = House( host_id=host_id, name=name, street_1=street_1, street_2=street_2, city=city, state_id=state_id, postal_code=postal_code, house_pic_url=house_pic_url, description=description, max_guests=int(max_guests), num_bedrooms=int(num_bedrooms), num_beds=int(num_beds), num_baths=int(num_baths), price=int(price))
+        house = House(
+            host_id=form.data['hostId'],
+            name=form.data['name'],
+            street_1=form.data['street1'],
+            street_2=form.data['street2'],
+            city=form.data['city'],
+            state_id=form.data['stateId'],
+            postal_code=form.data['postalCode'],
+            house_pic_url=None,
+            description=form.data['description'],
+            max_guests=int(form.data['maxGuests']),
+            num_bedrooms=int(form.data['numBedrooms']),
+            num_beds=int(form.data['numBeds']),
+            num_baths=int(form.data['numBaths']),
+            price=int(form.data['price'])
+        )
         db.session.add(house)
         db.session.commit()
 
@@ -49,7 +69,7 @@ def create_house():
 
         print(house_pic)
 
-        filename = f"house-pic-{house.id}{os.path.splitext(house_pic)[0]}"
+        filename = f"house-pic-{house.id}.jpg"
 
         url = upload_file_to_s3(house_pic, filename)
 

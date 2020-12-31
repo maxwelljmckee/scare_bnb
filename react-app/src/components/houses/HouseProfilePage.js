@@ -27,10 +27,10 @@ function SubTitle({ house }) {
     <div className="house-profile__subtitle">
       {/* Hosted by */}
       <span>Hosted by {house.host.first_name}</span>
+      {/* Description */}
+      <span> {house.max_guests} Guests • {house.num_beds} Beds • {house.num_baths} Baths </span>
       {/* Pic */}
       <img src={house.host.profile_pic_url} />
-      {/* Description */}
-      <span> • {house.max_guests} Guests • {house.num_beds} Beds • {house.num_baths} Baths </span>
     </div>
   )
 }
@@ -117,7 +117,7 @@ const HouseProfilePage = () => {
               <AmenitiesList house={house} />
             </div>
             {/* Dates? */}
-            
+
           </div>
           <div className="house-profile__body-right">
             {/* Booking */}

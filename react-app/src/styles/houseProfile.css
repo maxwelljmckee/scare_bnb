@@ -80,6 +80,34 @@
   font-weight: bold;
 }
 
+.house-profile__subtitle {
+  height: 60px;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:  "top pic"
+  "bottom pic";
+}
+
+.house-profile__subtitle > span:first-child {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.house-profile__subtitle > span:nth-child(2) {
+  display: flex;
+  align-items: flex-end;
+}
+
+.house-profile__subtitle > img{
+  height: 100%;
+
+  border-radius: 100px;
+
+  grid-area: pic;
+}
 
 
 /* ===== COMPONENT STYLES ===== */

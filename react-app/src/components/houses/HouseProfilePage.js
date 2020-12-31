@@ -64,7 +64,7 @@ function Location({ house }) {
 }
 
 
-// =========== MAIN PAGE COMPONENT =========== //
+
 const HouseProfilePage = () => {
   const { id } = useParams();
   const history = useHistory();

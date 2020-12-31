@@ -24,7 +24,7 @@ function AmenityDialog(props) {
       <DialogTitle id="amenities-dialog-title">Amenities</DialogTitle>
       <DialogContent>
         {amenities.map(amenity => {
-          return <AmenityItem amenity={amenity} />
+          return <AmenityItem key={amenity.id} amenity={amenity} />
         })}
       </DialogContent>
     </Dialog>

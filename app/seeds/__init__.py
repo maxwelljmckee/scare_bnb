@@ -4,6 +4,7 @@ from .users import seed_users, undo_users
 from .tags import seed_tags, undo_tags
 from .amenities import seed_amenities, undo_amenities
 from .houses import seed_houses, undo_houses
+from .house_amenities import seed_house_amenities, undo_house_amenities
 
 
 # Creates a seed group to hold our commands
@@ -18,6 +19,7 @@ def seed():
     seed_tags()
     seed_amenities()
     seed_houses()
+    seed_house_amenities()
     # Add other seed functions here
 
 # Creates the `flask seed undo` command
@@ -28,4 +30,5 @@ def undo():
     undo_users()
     undo_states()
     undo_houses()
+    undo_house_amenities()
     # Add other undo functions here

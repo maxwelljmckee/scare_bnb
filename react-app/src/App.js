@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/SplashPage/auth/ProtectedRoute";
 import { authenticate } from "./services/auth";
 import ListingsIdx from './components/houses/ListingsIdx'
 import CreateHouseForm from './components/houses/CreateHouseForm'
+import HouseProfilePage from './components/houses/HouseProfilePage'
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -29,8 +30,8 @@ function App() {
 
   return (
     <BrowserRouter>
+      <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} />
       <Switch>
-        <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} />
         <Route path="/" exact={true}>
           <HomePage></HomePage>
         </Route>
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <Route path="/houses/create">
           <CreateHouseForm />
+        </Route>
+        <Route path='/houses/:id'>
+          <HouseProfilePage />
         </Route>
       </Switch>
     </BrowserRouter>

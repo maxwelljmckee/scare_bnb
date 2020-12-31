@@ -8,3 +8,9 @@ class State(db.Model):
     state_name = db.Column(db.String(50), nullable=False)
 
     houses = db.relationship('House', back_populates='state')
+
+    def to_dict(self):
+        return {
+        "id": self.id,
+        "state_name": self.state_name,
+        }

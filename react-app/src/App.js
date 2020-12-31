@@ -38,8 +38,8 @@ function App() {
         <Route path="/listings">
           <ListingsIdx />
         </Route>
-        <Route path="/houses/create">
-          <CreateHouseForm />
+        <Route exact={true} path="/houses/create">
+          <CreateHouseForm user={authenticated} />
         </Route>
         <Route path='/houses/:id'>
           <HouseProfilePage />

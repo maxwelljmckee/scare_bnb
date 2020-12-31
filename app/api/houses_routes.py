@@ -1,6 +1,10 @@
+import os
+
 from flask import Blueprint, jsonify, session, request
 from app.models import db, House, State
 from app.forms import HouseCreateForm
+
+from .utils.awsS3 import upload_file_to_s3
 
 houses_routes = Blueprint('houses', __name__)
 
@@ -38,6 +42,26 @@ def create_house():
         house = House( host_id=host_id, name=name, street_1=street_1, street_2=street_2, city=city, state_id=state_id, postal_code=postal_code, house_pic_url=house_pic_url, description=description, max_guests=int(max_guests), num_bedrooms=int(num_bedrooms), num_beds=int(num_beds), num_baths=int(num_baths), price=int(price))
         db.session.add(house)
         db.session.commit()
+
+        print(house.id)
+
+        house_pic = request.files['housePic']
+
+        print(house_pic)
+
+        filename = f"house-pic-{house.id}{os.path.splitext(house_pic)[0]}"
+
+        url = upload_file_to_s3(house_pic, filename)
+
+        print(url)
+
+        house.house_pic_url = url
+
+        db.session.add(house)
+        db.session.commit()
+
+        return house.to_dict()
+
         return house.to_dict()
     return {'error': validator_errors_to_error_messages(form.errors)}
 

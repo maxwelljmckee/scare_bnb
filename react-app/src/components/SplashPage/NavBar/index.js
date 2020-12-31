@@ -17,7 +17,7 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
 
       </div>
       <div className="navbar__right">
-        <Link className="navbar__link" to="/create-house">
+        <Link className="navbar__link" to="/listings/create">
           Become a host
         </Link>
 

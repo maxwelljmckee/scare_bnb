@@ -35,10 +35,10 @@ function App() {
         <Route path="/" exact={true}>
           <HomePage></HomePage>
         </Route>
-        <Route path="/listings/create">
+        <Route path="/listings/create" exact={true}>
           <CreateHouseForm />
         </Route>
-        <Route path='/listings/:id'>
+        <Route path='/listings/:id' exact={true}>
           <HouseProfilePage />
         </Route>
         <Route path="/listings">

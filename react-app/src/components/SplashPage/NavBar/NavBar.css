@@ -12,7 +12,6 @@ nav {
 
   box-shadow: 0 0 20px 5px rgba(120, 120, 120, .1);
 
-
 }
 
 .navbar__left {
@@ -29,6 +28,8 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  visibility: hidden;
 }
 
 .navbar__right {

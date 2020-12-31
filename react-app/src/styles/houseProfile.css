@@ -118,6 +118,9 @@
 }
 
 .house-profile__booking-container {
+  position: sticky;
+  top: 120px;
+
   width: 335px;
   height: 250px;
   border: 1px solid rgb(211, 211, 211);

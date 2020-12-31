@@ -20,10 +20,11 @@ def validator_errors_to_error_messages(validation_errors):
 
 @houses_routes.route('/')
 def get_houses():
-    request.json.get('name', None)
-    new_house = {k: v for k, v in request.json.items() if k not in ('csrf', '')}
-    db.session.add(new_house)
-    db.session.commit()
+    pass
+    # request.json.get('name', None)
+    # new_house = {k: v for k, v in request.json.items() if k not in ('csrf', '')}
+    # db.session.add(new_house)
+    # db.session.commit()
 
 @houses_routes.route('/states')
 def get_states():

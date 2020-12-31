@@ -4,18 +4,18 @@ require('dotenv').config()
 const REACT_APP_MAPS_API_KEY = process.env.REACT_APP_MAPS_API_KEY
 
 const EmbedMap = ({ queryString }) => {
-  const encode = () => {
-    const encoded = queryString.split().join('+')
-    return encoded
-  }
+  // const encode = () => {
+  //   const encoded = queryString.split().join('+')
+  //   return encoded
+  // }
   
   return (
     <Fragment>
       <iframe
         title='googleMaps'
-        width="1000"
-        height="850"
-        src={`https://www.google.com/maps/embed/v1/place?key=${REACT_APP_MAPS_API_KEY}&q=${encode(queryString)}`}>
+        width='100%'
+        height='500'
+        src={`https://www.google.com/maps/embed/v1/place?key=${REACT_APP_MAPS_API_KEY}&q=${queryString}`}>
       </iframe>
     </Fragment>
   )

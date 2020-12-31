@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+import EmbedMap from '../EmbedMap';
 
 import AmenitiesList from './AmenitiesList'
 
@@ -29,7 +30,7 @@ function SubTitle({ house }) {
       {/* Pic */}
       <img src={house.host.profile_pic_url} />
       {/* Description */}
-      <span> {house.max_guests} Guests • {house.num_beds} Beds • {house.num_baths} Baths </span>
+      <span> • {house.max_guests} Guests • {house.num_beds} Beds • {house.num_baths} Baths </span>
     </div>
   )
 }
@@ -44,12 +45,30 @@ function Description({ house }) {
   )
 }
 
+function Location({ house }) {
+  const queryString = () => {
+    return `${house.street_1}+${house.street_2}+${house.city}+${house.state}+${house.postal_code}`
+  }
 
+  return (
+    <div className='house-profile__location'>
+      {/* Reviews */}
+      <div className='house-profile__map-container'>
+        <EmbedMap queryString={queryString()} />
+      </div>
+      {/* Host Bio */}
+    </div>
+  )
+}
+
+
+// =========== MAIN PAGE COMPONENT =========== //
 const HouseProfilePage = () => {
-  const { id } = useParams()
+  const { id } = useParams();
+  const history = useHistory();
 
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [house, setHouse] = useState(null)
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [house, setHouse] = useState(null);
 
   useEffect(() => {
 
@@ -62,6 +81,10 @@ const HouseProfilePage = () => {
     getHouse()
   }, [id])
 
+  const handleRedirect = () => {
+    history.push('/listings')
+  }
+
   return (
     <div className="house-profile__body">
       {!isLoaded && (
@@ -69,6 +92,9 @@ const HouseProfilePage = () => {
       )}
       {house && isLoaded && (
         <>
+          <div className='house-profile__back-arrow'>
+            <i onClick={handleRedirect} className="fas fa-arrow-left"></i>
+          </div>
           <div className="house-profile__body-top">
             {/* Title */}
             <Title house={house} />
@@ -91,16 +117,22 @@ const HouseProfilePage = () => {
               <AmenitiesList house={house} />
             </div>
             {/* Dates? */}
-            {/* Reviews */}
-            {/* Location */}
-            {/* Host Bio */}
-
+            
           </div>
           <div className="house-profile__body-right">
             {/* Booking */}
             <div className="house-profile__booking-container">
               BOOKING
             </div>
+          </div>
+          <div className='house-profile__body-bottom'>
+            {/* Reviews */}
+            {/* Location */}
+            <div>
+              <h3 className='house-profile__section-title'>Location</h3>
+              <Location house={house} />
+            </div>
+            {/* Host Bio */}
           </div>
         </>
       )}

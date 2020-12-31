@@ -5,9 +5,9 @@ import { Dialog, DialogContent, DialogTitle } from '@material-ui/core'
 
 function AmenityItem({ amenity }) {
   return (
-    <div>
+    <div className='amenity-item'>
       <i className={amenity.icon} />
-      <span>{amenity.amenity_name}</span>
+      <span> {amenity.amenity_name}</span>
     </div>
   )
 }

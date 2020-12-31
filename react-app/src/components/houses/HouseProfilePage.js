@@ -117,7 +117,7 @@ const HouseProfilePage = () => {
               <AmenitiesList house={house} />
             </div>
             {/* Dates? */}
-            
+
           </div>
           <div className="house-profile__body-right">
             {/* Booking */}

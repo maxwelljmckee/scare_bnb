@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 
 import axios from 'axios'
 
+import ImageInput from '../FormFields/ImageCropper/ImageInput'
+
 
 const CreateHouseForm = ({ user }) => {
   const history = useHistory()
@@ -16,7 +18,6 @@ const CreateHouseForm = ({ user }) => {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [postalCode, setPostalCode] = useState('');
-  const [housePicUrl, setHousePicUrl] = useState('');
   const [description, setDescription] = useState('');
   const [maxGuests, setMaxGuests] = useState(1);
   const [numBedrooms, setNumBedrooms] = useState(1);
@@ -181,11 +182,13 @@ const CreateHouseForm = ({ user }) => {
         />
       </div>
       <div>
-        <input
+        <label for='house_pic'>House Picture</label>
+        {/* <input
           name="house_pic"
           type="file"
-          onChange={(e) => setHousePicUrl(e.target.value)}
-        />
+          onChange={(e) => setHousePic(e.target.value)}
+        /> */}
+        <ImageInput aspect={3 / 2} onChange={setHousePic} width={1620} height={1080} />
       </div>
       <div>
         <label for='max_guests'>Max Guests</label>

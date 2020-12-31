@@ -10,6 +10,11 @@ def get_all_states():
     State.query.all()
 
 
+@houses_routes.route('/')
+def get_all_houses():
+    all_houses = House.query.all()
+    data = [house.to_dict() for house in all_houses]
+    return jsonify(data)
 
 
 

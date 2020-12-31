@@ -22,24 +22,17 @@ def get_states():
 
 
 
-@houses_routes.route('/register', methods=['POST'])
+@houses_routes.route('create', methods=['POST'])
 def create_house():
-    # print('here it is')
-    # print(session)
-    # # print(session._id)
-    # # print(session.SecureCookieSession)
-    # # print(session._user_id)
-    # user = session.get(_user_id)
-    # print(user)
-    # host_id = session._user_id
-    user = request.json.get("userId")
-    print(user)
+    print(request.json)
+    print(request.json)
+    host_id = request.json.get("hostId", None)
     name = request.json.get("name", None)
     street_1 = request.json.get("street1", None)
     street_2 = request.json.get("street2", None)
     city = request.json.get("city", None)
-    state = request.json.get("state", None)
-    postcal_code= request.json.get("postalCode", None)
+    state_id = request.json.get("state", None)
+    postal_code= request.json.get("postalCode", None)
     house_pic_url= request.json.get("housePicUrl", None)
     description = request.json.get("description", None)
     max_guests = request.json.get("maxGuests", None)
@@ -48,8 +41,8 @@ def create_house():
     num_baths = request.json.get("numBaths", None)
     price = request.json.get("price", None)
 
-    request.json
-    house = House( host_id, name, street_1, street_2, city, state,postcal_code, house_pic_url, description, max_guests, num_bedrooms, num_beds, num_baths, price )
+    # state = State.query.get(state)
+    house = House( host_id=host_id, name=name, street_1=street_1, street_2=street_2, city=city, state_id=state_id, postal_code=postal_code, house_pic_url=house_pic_url, description=description, max_guests=int(max_guests), num_bedrooms=int(num_bedrooms), num_beds=int(num_beds), num_baths=int(num_baths), price=int(price))
     db.session.add(house)
     db.session.commit()
     return house.to_dict()

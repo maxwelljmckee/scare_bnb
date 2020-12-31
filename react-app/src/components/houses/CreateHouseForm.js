@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
-const CreateHouseForm = () => {
+
+const CreateHouseForm = ({ user }) => {
   const history = useHistory()
   const [errors, setErrors] = useState([]);
   const [allStates, setAllStates] = useState([]);
@@ -21,14 +22,16 @@ const CreateHouseForm = () => {
   const [numBeds, setNumBeds] = useState(1);
   const [numBaths, setNumBaths] = useState(1);
   const [price, setPrice] = useState(0)
-  const { userId }  = useParams();
+
+
 
   useEffect(() => {
     // fetch (united) states from db and store in 'allStates' var
     const getStates = async () => {
       const res = await fetch('/api/houses/states')
-      const allStates = await res.json()
-      console.log(userId)
+      const data = await res.json()
+      setAllStates(data)
+      console.log(allStates)
 
     }
     getStates()
@@ -39,6 +42,7 @@ const CreateHouseForm = () => {
   const handleSubmit = async () => {
     // create object from state
     const newHouse = {
+      hostId: user.id,
       name,
       street1,
       street2,
@@ -49,23 +53,34 @@ const CreateHouseForm = () => {
       description,
       maxGuests,
       numBedrooms,
+      numBeds,
       numBaths,
       price,
 
 
+
     }
     // send object to flask backend
-    const res = fetch('/api/houses/register', {
+    const res = fetch('/api/houses/create', {
       method: "POST",
-      body: newHouse,
-      userId,
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newHouse),
+
+
+
+
+
     })
     history.push('/')
     return
   }
 
   return (
+
     <form className='create-house-form' onSubmit={handleSubmit}>
+      {console.log(allStates)}
       <div>
         {errors.map((error) => (
           <div>{error}</div>
@@ -117,7 +132,9 @@ const CreateHouseForm = () => {
       </div>
       <div>
         <select onChange={(e) => setState(e.target.value)}>
+          <option>Select State</option>
           {allStates.map(state => {
+
             return <option value={state.id}>{state.state_name}</option>
           })}
         </select>

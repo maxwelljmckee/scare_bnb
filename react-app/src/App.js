@@ -29,16 +29,16 @@ function App() {
 
   return (
     <BrowserRouter>
+      <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} />
       <Switch>
-        <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} />
         <Route path="/" exact={true}>
           <HomePage></HomePage>
         </Route>
         <Route path="/listings">
           <ListingsIdx />
         </Route>
-        <Route path="/houses/create">
-          <CreateHouseForm />
+        <Route exact={true} path="/houses/create">
+          <CreateHouseForm user={authenticated} />
         </Route>
       </Switch>
     </BrowserRouter>

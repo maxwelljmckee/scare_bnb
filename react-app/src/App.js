@@ -9,6 +9,7 @@ import { authenticate } from "./services/auth";
 import ListingsIdx from './components/houses/ListingsIdx'
 import CreateHouseForm from './components/houses/CreateHouseForm'
 import HouseProfilePage from './components/houses/HouseProfilePage'
+import GhostRating from "./components/houses/GhostRating";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -30,8 +31,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} />
+      {/* <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} /> */}
       <Switch>
+        <Route path="/test">
+          <GhostRating />
+        </Route>
         <Route path="/listings/create" exact={true}>
           <CreateHouseForm />
         </Route>

@@ -35,7 +35,7 @@ function AmenityDialog(props) {
 export default function AmenitiesList({ house, house: { amenities } }) {
   const [showList, setShowList] = useState(false)
 
-  const mainAmenities = amenities.length > 6 ? amenities.slice(0, 7) : amenities
+  const mainAmenities = amenities.length > 6 ? amenities.slice(0, 6) : amenities
 
   const handleOpen = (e) => {
     e.preventDefault()

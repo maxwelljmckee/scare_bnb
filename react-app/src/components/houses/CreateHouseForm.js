@@ -21,6 +21,7 @@ const CreateHouseForm = () => {
   const [numBeds, setNumBeds] = useState(1);
   const [numBaths, setNumBaths] = useState(1);
   const [price, setPrice] = useState(0)
+  
 
   useEffect(() => {
     // fetch (united) states from db and store in 'allStates' var

@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
-import EmbedMap from '../EmbedMap'
+// import EmbedMap from '../EmbedMap'
+import WriteHouseReview from './WriteReview'
 
 const ListingsIdx = () => {
 
@@ -9,7 +10,8 @@ const ListingsIdx = () => {
 
   return (
     <Fragment>
-      <EmbedMap queryString='59 cdear avenue montclair nj' />
+      {/* <EmbedMap queryString='59 cdear avenue montclair nj' /> */}
+      <WriteHouseReview></WriteHouseReview>
     </Fragment>
   )
 }

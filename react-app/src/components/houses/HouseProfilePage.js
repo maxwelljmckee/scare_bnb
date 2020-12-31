@@ -6,9 +6,9 @@ import AmenitiesList from './AmenitiesList'
 
 function Title({ house }) {
   return (
-    <div>
+    <div className="house-profile__title">
       {/* Location - Name */}
-      <span> {house.city}, {house.state} - {house.name}</span>
+      <span> {/* {house.city}, {house.state} - */} {house.name}</span>
       {/* Rating */}
       <div className='rating-container'>
         <i className="fas fa-ghost"></i>
@@ -23,7 +23,7 @@ function Title({ house }) {
 
 function SubTitle({ house }) {
   return (
-    <div>
+    <div className="house-profile__subtitle">
       {/* Hosted by */}
       <span>Hosted by {house.host.first_name}</span>
       {/* Pic */}
@@ -37,7 +37,7 @@ function SubTitle({ house }) {
 
 function Description({ house }) {
   return (
-    <div>
+    <div className="house-profile__description">
       {/* Hosted by */}
       <p> {house.description} </p>
     </div>
@@ -63,29 +63,44 @@ const HouseProfilePage = () => {
   }, [id])
 
   return (
-    <div style={{ paddingTop: "60px" }}>
+    <div className="house-profile__body">
       {!isLoaded && (
         <div>Loading...</div>
       )}
       {house && isLoaded && (
         <>
-          {/* Title */}
-          <Title house={house} />
-          {/* Image */}
-          <img src={house.house_pic_url} />
-          <div>
+          <div className="house-profile__body-top">
+            {/* Title */}
+            <Title house={house} />
+            {/* Image */}
+            <div className="house-profile__image-wrapper">
+              <img src={house.house_pic_url} />
+            </div>
+          </div>
+          <div className="house-profile__body-left">
             {/* Host */}
             <SubTitle house={house} />
             {/* Description */}
-            <Description house={house} />
+            <div>
+              <h3 className="house-profile__section-title">Description</h3>
+              <Description house={house} />
+            </div>
             {/* Amenities */}
-            <AmenitiesList house={house} />
+            <div>
+              <h3 className="house-profile__section-title">Amenities</h3>
+              <AmenitiesList house={house} />
+            </div>
             {/* Dates? */}
             {/* Reviews */}
+            {/* Location */}
+            {/* Host Bio */}
 
           </div>
-          <div>
+          <div className="house-profile__body-right">
             {/* Booking */}
+            <div className="house-profile__booking-container">
+              BOOKING
+            </div>
           </div>
         </>
       )}

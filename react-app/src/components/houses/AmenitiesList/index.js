@@ -19,6 +19,7 @@ function AmenityDialog(props) {
     <Dialog
       open={props.open}
       onClose={props.onClose}
+      onClick={props.onClose}
     >
       <DialogTitle id="amenities-dialog-title">Amenities</DialogTitle>
       <DialogContent>

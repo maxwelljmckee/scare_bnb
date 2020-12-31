@@ -65,7 +65,7 @@ function Location({ house }) {
 
 
 // =========== MAIN PAGE COMPONENT =========== //
-const HouseProfilePage = () => {
+const HouseProfilePage = (authenticated) => {
   const { id } = useParams();
   const history = useHistory();
 
@@ -129,6 +129,7 @@ const HouseProfilePage = () => {
           </div>
           <div className='house-profile__body-bottom'>
             {/* Reviews */}
+
             {/* Location */}
             <div>
               <h3 className='house-profile__section-title'>Location</h3>
@@ -137,8 +138,9 @@ const HouseProfilePage = () => {
             {/* Host Bio */}
           </div>
         </>
-      )}
-    </div>
+      )
+      }
+    </div >
   )
 }
 

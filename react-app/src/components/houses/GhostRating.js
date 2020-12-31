@@ -5,15 +5,13 @@ function GhostyBoy({ onClick, id, on }) {
   )
 }
 
-export default function GhostRating({ onChange, value }) {
+export default function GhostRating({ setRating, rate }) {
   const maxRating = 5
-
-  const [rate, setRate] = useState(0)
 
   const ghosts = []
 
   for (let i = 0; i < maxRating; i++) {
-    ghosts.push(<GhostyBoy key={`ghost${i}`} onClick={(e) => { e.stopPropagation(); setRate(i + 1) }} id={`ghosty-boy-${i}`} on={i + 1 <= rate} />)
+    ghosts.push(<GhostyBoy key={`ghost${i}`} onClick={(e) => { e.stopPropagation(); setRating(i + 1) }} id={`ghosty-boy-${i}`} on={i + 1 <= rate} />)
   }
 
   return (

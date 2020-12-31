@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/SplashPage/auth/ProtectedRoute";
 import { authenticate } from "./services/auth";
 import ListingsIdx from './components/houses/ListingsIdx'
 import CreateHouseForm from './components/houses/CreateHouseForm'
+import HouseProfilePage from './components/houses/HouseProfilePage'
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <Route exact={true} path="/houses/create">
           <CreateHouseForm user={authenticated} />
+        </Route>
+        <Route path='/houses/:id'>
+          <HouseProfilePage />
         </Route>
       </Switch>
     </BrowserRouter>

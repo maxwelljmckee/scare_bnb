@@ -1,16 +1,26 @@
-import React, { Fragment, useEffect } from 'react';
-import EmbedMap from '../EmbedMap'
+import React, { Fragment, useState, useEffect } from 'react';
+
+import ListingCard from './ListingCard'
 
 const ListingsIdx = () => {
+  const [allHouses, setAllHouses] = useState([])
 
   useEffect(() => {
-    // const res = fetch('')
+    // FETCH ALL LISTINGS FROM FLASK
+    (async () => {
+      const res = await fetch('/api/houses');
+      const parsedHouses = await res.json();
+      setAllHouses(parsedHouses)
+    })()
   }, [])
 
   return (
-    <Fragment>
-      <EmbedMap queryString='59 cdear avenue montclair nj' />
-    </Fragment>
+    <div className='listings__container'>
+      <div className='title'><h1>Find Spooky Stays Near You</h1></div>
+      {allHouses.map(house => {
+        return <ListingCard house={house} />
+      })}
+    </div>
   )
 }
 

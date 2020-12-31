@@ -37,7 +37,10 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
         {!authenticated && (
           <i className="fas fa-user-circle"></i>
         )}
-        {authenticated && (
+        {authenticated && !authenticated.profile_pic_url && (
+          <i className="fas fa-user-circle"></i>
+        )}
+        {authenticated && authenticated.profile_pic_url && (
           <img className="usermenu__profile-pic" src={authenticated.profile_pic_url} />
         )}
       </div>

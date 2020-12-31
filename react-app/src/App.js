@@ -35,14 +35,14 @@ function App() {
         <Route path="/" exact={true}>
           <HomePage></HomePage>
         </Route>
+        <Route path="/listings/create" exact={true}>
+          <CreateHouseForm />
+        </Route>
+        <Route path='/listings/:id' exact={true}>
+          <HouseProfilePage />
+        </Route>
         <Route path="/listings">
           <ListingsIdx />
-        </Route>
-        <Route exact={true} path="/houses/create">
-          <CreateHouseForm user={authenticated} />
-        </Route>
-        <Route path='/houses/:id'>
-          <HouseProfilePage />
         </Route>
       </Switch>
     </BrowserRouter>

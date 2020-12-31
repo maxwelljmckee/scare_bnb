@@ -21,6 +21,7 @@ def upgrade():
     op.create_table('amenities',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('amenity_name', sa.String(length=200), nullable=False),
+    sa.Column('icon', sa.String(length=25)),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###

@@ -9,7 +9,7 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
   return (
     <nav>
       <div className="navbar__left">
-        <Link to="/"> <img className="navbar__logo" src="./logos/logo-full-black.png" /> </Link>
+        <Link to="/"> <img className="navbar__logo" src="/logos/logo-full-black.png" /> </Link>
 
       </div>
       <div className="navbar__center">
@@ -17,7 +17,7 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
 
       </div>
       <div className="navbar__right">
-        <Link className="navbar__link" to="/houses/create">
+        <Link className="navbar__link" to="/listings/create">
           Become a host
         </Link>
 

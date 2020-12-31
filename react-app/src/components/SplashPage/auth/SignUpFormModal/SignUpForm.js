@@ -23,7 +23,7 @@ const SignUpForm = ({ authenticated, setAuthenticated, onClose }) => {
     e.preventDefault();
     e.stopPropagation();
     if (password === repeatPassword) {
-      let newUser = {firstName, lastName, bio, email, password, profilePic}
+      let newUser = { firstName, lastName, bio, email, password, profilePic }
       const user = await signUp(newUser);
       if (!user.errors) {
         setAuthenticated(user);
@@ -39,17 +39,8 @@ const SignUpForm = ({ authenticated, setAuthenticated, onClose }) => {
   };
 
   const onHost = async (e) => {
-    e.preventDefault();
-    if (password === repeatPassword) {
-      const user = await signUp(firstName, lastName, bio, email, password, profilePic);
-      if (!user.errors) {
-        setAuthenticated(true);
-        // REDIRECT TO HOSTING FORM
-      }
-      else {
-        setErrors(user.errors)
-      }
-    }
+    await onSignUp(e)
+    return <Redirect to="/listings/create" />
   }
 
   const updateFirstName = (e) => {

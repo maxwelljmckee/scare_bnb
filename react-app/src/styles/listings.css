@@ -1,17 +1,21 @@
 
 .listings__container {
     min-width: 900px;
+    max-width: 1400px;
+    padding: 40px;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    /* flex: 1 1 100%; */
     justify-content: space-around;
     position: relative;
-    top: 80px;
+    top: 60px;
 }
 
 .listings__container .title {
     font-size: 40px;
     width: 100%;
-
+    margin: 10px;
 }
 
 .listings__listing-card {
@@ -19,7 +23,6 @@
     height: 350px;
     border-radius: 10px;
     margin: 10px;
-    flex-grow: 1;
 }
 
 .listings__listing-card .rating-container {
@@ -35,7 +38,6 @@
     height: 200px;
     border-radius: 10px;
     object-fit: cover;
-    flex-grow: 1
 }
 
 .listings__listing-card h2 {

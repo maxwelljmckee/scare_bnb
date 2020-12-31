@@ -6,7 +6,7 @@ const HouseProfilePage = () => {
   const { id } = useParams()
 
   return (
-    <div>stuff</div>
+    <div>{id}</div>
   )
 }
 

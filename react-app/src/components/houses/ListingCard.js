@@ -6,7 +6,7 @@ const ListingCard = ({ house }) => {
   const history = useHistory();
 
   const handleClick = (e) => {
-    history.push(`houses/${house.id}`)
+    history.push(`/listings/${house.id}`)
   }
 
   return (

@@ -72,6 +72,7 @@ class House(db.Model):
             "price": self.price,
             "latitude": self.latitude,
             "longitude": self.longitude,
+            "state": self.state.state_name,
             # "reviews": self.reviews.to_dict(),
             # "bookings": self.bookings.to_dict(),
             # "tags": self.tags.to_dict(),

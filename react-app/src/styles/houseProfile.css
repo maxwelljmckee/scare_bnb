@@ -89,15 +89,6 @@
   padding: 8px 0;
 }
 
-.house-profile__booking-container {
-  width: 335px;
-  height: 250px;
-  border: 1px solid rgb(211, 211, 211);
-  border-radius: 10px;
-  box-shadow: 0 0 20px 5px rgba(120, 120, 120, .3);
-  /* background-color: rgba(200, 120, 45, .3) */
-}
-
 .house-profile__description {
   line-height: 1.6em;
 }
@@ -114,7 +105,7 @@
 .house-profile__back-arrow {
   font-size: 30px;
   position: fixed;
-  top: 100px;
+  top: 115px;
   left: 75px;
 
   cursor: pointer;
@@ -126,3 +117,69 @@
 }
 
 
+/* ===== BOOKING CARD STYLES ===== */
+.house-profile__booking-card {
+  width: 335px;
+  height: 250px;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 10px;
+  box-shadow: 0 0 20px 5px rgba(120, 120, 120, .3);
+  /* background-color: rgba(200, 120, 45, .3) */
+}
+
+.booking-card__container {
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.booking-card__flex-group-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.booking-card__flex-group-1 span {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.date-selector__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.date-selector__container input {
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 15px;
+  width: 200px;
+  height: 30px;
+  cursor: pointer;
+  margin: 5px;
+  text-align: center;
+}
+
+.date-selector__container input:focus {
+  box-shadow: 0 0 7px 1px rgba(170, 170, 170, .5);
+}
+
+.date-selector__container form {
+  width: 100%;
+}
+
+.date-selector__container button {
+  width: 208px;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 15px;
+  height: 35px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.date-selector__container button:hover {
+  box-shadow: 0 0 7px 1px rgba(170, 170, 170, .5);
+  transform: scale(1.03);
+  transition: transform 10ms ease-in-out;
+}

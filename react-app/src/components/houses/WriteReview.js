@@ -24,7 +24,7 @@ const WriteHouseReview = ({ user }) => {
             // userId: user.id,
             userId: 1,
             // house_id
-            rating,
+            rating: 1,
             comment
         };
 

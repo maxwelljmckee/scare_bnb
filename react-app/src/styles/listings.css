@@ -1,0 +1,53 @@
+
+.listings__container {
+    min-width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
+    top: 80px;
+}
+
+.listings__container .title {
+    font-size: 40px;
+    width: 100%;
+
+}
+
+.listings__listing-card {
+    width: 300px;
+    height: 350px;
+    border-radius: 10px;
+    margin: 10px;
+    flex-grow: 1;
+}
+
+.listings__listing-card .rating-container {
+    padding: 5px;
+}
+
+.listings__listing-card:hover {
+    cursor: pointer;
+}
+
+.listings__listing-card img {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-grow: 1
+}
+
+.listings__listing-card h2 {
+    font-size: 20px;
+    padding: 5px;
+}
+
+.listings__listing-card h3 {
+    font-size: 15px;
+    padding: 5px;
+}
+
+strong {
+    font-weight: bold;
+}

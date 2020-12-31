@@ -16,6 +16,7 @@ const ListingsIdx = () => {
 
   return (
     <div className='listings__container'>
+      <div className='title'><h1>Find Spooky Stays Near You</h1></div>
       {allHouses.map(house => {
         return <ListingCard house={house} />
       })}

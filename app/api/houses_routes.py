@@ -12,7 +12,6 @@ def get_all_states():
 
 @houses_routes.route('/')
 def get_all_houses():
-    print(request)
     all_houses = House.query.all()
     data = [house.to_dict() for house in all_houses]
     return jsonify(data)

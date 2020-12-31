@@ -54,6 +54,7 @@ class House(db.Model):
 
     def to_dict(self):
         return {
+            'id': self.id,
             'host': f'{self.owner.first_name} {self.owner.last_name}',
             'name': self.name,
             'street_1': self.street_1,

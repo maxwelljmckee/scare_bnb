@@ -25,3 +25,11 @@ def get_all_houses():
     # new_house = {k: v for k, v in request.json.items() if k not in ('csrf', '')}
     # db.session.add(new_house)
     # db.session.commit()
+
+
+@houses_routes.route('/<id>', methods=['GET'])
+def get_house_details(id):
+    house = House.query.get(id)
+    if house:
+        return house.to_dict()
+    return {'errors': ['The requested house does not exist']}, 404

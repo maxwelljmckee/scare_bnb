@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import axios from 'axios'
 
 
 const CreateHouseForm = ({ user }) => {
@@ -22,6 +23,7 @@ const CreateHouseForm = ({ user }) => {
   const [numBeds, setNumBeds] = useState(1);
   const [numBaths, setNumBaths] = useState(1);
   const [price, setPrice] = useState(0)
+  const [housePic, setHousePic] = useState(null)
 
 
 
@@ -41,40 +43,70 @@ const CreateHouseForm = ({ user }) => {
 
   const handleSubmit = async () => {
     // create object from state
-    const newHouse = {
-      hostId: user.id,
-      name,
-      street1,
-      street2,
-      city,
-      state,
-      postalCode,
-      housePicUrl,
-      description,
-      maxGuests,
-      numBedrooms,
-      numBeds,
-      numBaths,
-      price,
+    // const newHouse = {
+    //   hostId: user.id,
+    //   name,
+    //   street1,
+    //   street2,
+    //   city,
+    //   state,
+    //   postalCode,
+    //   housePicUrl,
+    //   description,
+    //   maxGuests,
+    //   numBedrooms,
+    //   numBeds,
+    //   numBaths,
+    //   price,
+    // }
 
-
-
+    // FormData object for Axios form submission
+    const formData = new FormData();
+    formData.append('hostId', user.id)
+    formData.append('name', name)
+    formData.append('street1', street1)
+    formData.append('street2', street2)
+    formData.append('city', city)
+    formData.append('state', state)
+    formData.append('postalCode', postalCode)
+    formData.append('description', description)
+    formData.append('maxGuests', maxGuests)
+    formData.append('numBedrooms', numBedrooms)
+    formData.append('numBeds', numBeds)
+    formData.append('numBaths', numBaths)
+    formData.append('price', price)
+    if (housePic) {
+      formData.append('housePic', housePic)
     }
-    // send object to flask backend
-    const res = fetch('/api/houses/create', {
-      method: "POST",
+
+    // Config object for multi-part form
+    const config = {
       headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newHouse),
+        "content-type": "multipart/form-data"
+      }
+    }
 
+    // Post to flask backend
+    let response = await axios.post('/api/houses/create', formData, config)
 
+    if (!response.data.errors) {
+      history.push(`/listings/${response.data.id}`)
+    }
+    else {
+      setErrors(response.data.errors)
+    }
 
+    // send object to flask backend
+    // const res = fetch('/api/houses/create', {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify(newHouse),
 
-
-    })
-    history.push('/')
-    return
+    // })
+    // history.push('/')
+    // return
   }
 
   return (
@@ -149,8 +181,11 @@ const CreateHouseForm = ({ user }) => {
         />
       </div>
       <div>
-        {/* ADD AWS IMAGE UPLOAD FUNCTIONALITY */}
-        <button>Upload Image</button>
+        <input
+          name="house_pic"
+          type="file"
+          onChange={(e) => setHousePicUrl(e.target.value)}
+        />
       </div>
       <div>
         <label for='max_guests'>Max Guests</label>

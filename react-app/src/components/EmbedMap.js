@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react';
+require('dotenv').config()
 
+const REACT_APP_MAPS_API_KEY = process.env.REACT_APP_MAPS_API_KEY
 
 const EmbedMap = ({ queryString }) => {
   const encode = () => {
@@ -13,7 +15,7 @@ const EmbedMap = ({ queryString }) => {
         title='googleMaps'
         width="1000"
         height="850"
-        src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBWPv72iWYiEDzcxwy63ooJ7JC9obR8-iM&q=${encode(queryString)}`}>
+        src={`https://www.google.com/maps/embed/v1/place?key=${REACT_APP_MAPS_API_KEY}&q=${encode(queryString)}`}>
       </iframe>
     </Fragment>
   )

@@ -1,0 +1,27 @@
+.write-review-form {
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    width: 500px;
+
+    /* margin: 0px 0px 80px; */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 1px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.write-review-form h1 {
+    font-size: 20px;
+}
+
+.write-review-form textarea {
+    resize: none;
+    margin: 8px;
+    height: 100%;
+    width: 100%;
+    border-radius: 7px;
+}

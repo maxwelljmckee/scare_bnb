@@ -126,3 +126,25 @@
 }
 
 
+/* ===== GHOST RATING ===== */
+.ghost-rating__container {
+  margin: 10px;
+}
+
+.ghost-rating__container > * {
+  font-size: 18px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.ghost-rating__container > *:hover {
+  text-shadow: 0 0 2px orange;
+}
+
+.ghost--on {
+  color: black
+}
+
+.ghost--off {
+  color: grey
+}

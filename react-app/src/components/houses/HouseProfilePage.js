@@ -129,6 +129,7 @@ const HouseProfilePage = () => {
           </div>
           <div className='house-profile__body-bottom'>
             {/* Reviews */}
+
             {/* Location */}
             <div>
               <h3 className='house-profile__section-title'>Location</h3>
@@ -137,8 +138,9 @@ const HouseProfilePage = () => {
             {/* Host Bio */}
           </div>
         </>
-      )}
-    </div>
+      )
+      }
+    </div >
   )
 }
 

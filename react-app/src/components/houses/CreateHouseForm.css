@@ -1,0 +1,62 @@
+/* .page-container {
+    background-image: url(https://cdn4.vectorstock.com/i/1000x1000/46/08/haunted-house-background-vector-21504608.jpg);
+    background-repeat: no-repeat;
+} */
+.form-container{
+
+    display: flex;
+
+    align-items: center;
+}
+.create-house-form {
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.login-form_errors {
+    color: darkred;
+    background: rgba(255, 125, 125, .2);
+    border-radius: 10px;
+    border: 1px solid darkred;
+    padding: 10px;
+  }
+
+  .create-house-form input {
+    padding-left: 10px;
+    justify-self: center;
+    border: 1px solid lightgrey;
+
+
+}
+.create-house-form textarea {
+    padding-left: 10px;
+    padding-top: 7px;
+    border: 1px solid lightgrey;
+}
+label{
+    padding: 30px;
+    font-family: "Roboto", sans-serif;
+    /* font-size: ; */
+
+}
+.house-label {
+padding-top:0px;
+}
+
+.form-submit-btn{
+    padding: 10px;
+    background-color: orange;
+    border-radius: 100px;
+    border: orange;
+}
+.select-state{
+    border-radius: 100px;
+    background-color: orange;
+    border: orange;
+    padding: 7px;
+}

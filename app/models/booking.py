@@ -15,3 +15,13 @@ class Booking(db.Model):
 
     house = db.relationship('House', back_populates='bookings')
     guest = db.relationship('User', back_populates='bookings')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'checkin': self.checkin,
+            'checkout': self.checkout,
+            'numGuests': self.num_guests,
+            'house': self.house.to_dict(),
+            'guest': self.guest.to_dict()
+        }

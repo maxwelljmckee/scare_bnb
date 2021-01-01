@@ -106,7 +106,7 @@
   font-size: 30px;
   position: fixed;
   top: 115px;
-  left: 75px;
+  left: 65px;
 
   cursor: pointer;
 }
@@ -169,7 +169,7 @@
   width: 100%;
 }
 
-.date-selector__container button {
+.booking-card__submit button {
   width: 208px;
   border: 1px solid rgb(211, 211, 211);
   border-radius: 15px;
@@ -178,7 +178,7 @@
   padding: 5px;
 }
 
-.date-selector__container button:hover {
+.booking-card__submit button:hover {
   box-shadow: 0 0 7px 1px rgba(170, 170, 170, .5);
   transform: scale(1.03);
   transition: transform 10ms ease-in-out;

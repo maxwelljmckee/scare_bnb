@@ -65,7 +65,7 @@ function Location({ house }) {
 
 
 
-const HouseProfilePage = () => {
+const HouseProfilePage = ({ authenticated }) => {
   const { id } = useParams();
   const history = useHistory();
 
@@ -79,6 +79,8 @@ const HouseProfilePage = () => {
       const body = await response.json()
       setHouse(body)
       setIsLoaded(true)
+      console.log(house.reviews)
+      console.log(body.reviews)
     }
     getHouse()
   }, [id])
@@ -86,6 +88,8 @@ const HouseProfilePage = () => {
   const handleRedirect = () => {
     history.push('/listings')
   }
+
+  // console.log(house.reviews)
 
   return (
     <div className="house-profile__body">
@@ -129,7 +133,7 @@ const HouseProfilePage = () => {
           </div>
           <div className='house-profile__body-bottom'>
             {/* Reviews */}
-            {/* <WriteHouseReview user={authenticated} /> */}
+            <WriteHouseReview user={authenticated} />
             {/* Location */}
             <div>
               <h3 className='house-profile__section-title'>Location</h3>

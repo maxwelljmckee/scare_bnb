@@ -11,11 +11,16 @@
 .create-house-form {
     font-family: "Roboto", sans-serif;
     font-size: 12px;
-    margin-top: 100px;
+    margin: 100px auto;
+    padding:50px;
+
     display: flex;
     flex-direction: column;
 
+    border-radius: 10px;
 
+    box-shadow: 0 0 10px 1px;
+    width: 500px;
 }
 
 .login-form_errors {
@@ -24,26 +29,44 @@
     border-radius: 10px;
     border: 1px solid darkred;
     padding: 10px;
-  }
-
-  .create-house-form input {
-    padding-left: 10px;
-    justify-self: center;
-    border: 1px solid lightgrey;
-
-
 }
+
+.create-house-form > * {
+    margin: 10px 0;
+}
+
+.create-house-form textarea:focus,
+.create-house-form input:focus {
+    border: 1px solid black
+}
+
+.create-house-form input {
+    height: 40px;
+}
+
 .create-house-form textarea {
-    padding-left: 10px;
     padding-top: 7px;
+    height: 100px;
+    resize: none;
+}
+
+.create-house-form input,
+.create-house-form textarea {
+    margin-top:10px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding-left: 10px;
     border: 1px solid lightgrey;
 }
-label{
-    padding: 30px;
-    font-family: "Roboto", sans-serif;
-    /* font-size: ; */
 
+.create-house-form label{
+    padding: 30px 0;
+    /* margin-bottom: 20px; */
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
 }
+
 .house-label {
 padding-top:0px;
 }
@@ -54,9 +77,20 @@ padding-top:0px;
     border-radius: 100px;
     border: orange;
 }
+
 .select-state{
     border-radius: 100px;
     background-color: orange;
     border: orange;
     padding: 7px;
+}
+
+.form-submit-btn:hover,
+.select-state:hover {
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.select-state > option {
+    background-color: white;
 }

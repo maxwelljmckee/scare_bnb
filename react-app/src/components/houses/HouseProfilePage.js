@@ -129,7 +129,7 @@ const HouseProfilePage = () => {
           </div>
           <div className='house-profile__body-bottom'>
             {/* Reviews */}
-
+            {/* <WriteHouseReview user={authenticated} /> */}
             {/* Location */}
             <div>
               <h3 className='house-profile__section-title'>Location</h3>

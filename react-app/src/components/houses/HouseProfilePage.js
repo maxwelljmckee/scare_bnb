@@ -46,7 +46,7 @@ function Description({ house }) {
 
 function Location({ house }) {
   const queryString = () => {
-    return `${house.street_1}+${house.street_2}+${house.city}+${house.state}+${house.postal_code}`
+    return `${house.street_1}+${house.street_2}+${house.city}+${house.state}+${house.postal_code}`;
   }
 
   return (

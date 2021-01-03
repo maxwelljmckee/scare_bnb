@@ -3,6 +3,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import EmbedMap from '../EmbedMap';
 
 import AmenitiesList from './AmenitiesList'
+import ReviewsList from './ReviewsList'
 import WriteHouseReview from './WriteReview'
 import ReviewPopup from './ReviewPopup'
 
@@ -133,6 +134,10 @@ const HouseProfilePage = ({ authenticated }) => {
           </div>
           <div className='house-profile__body-bottom'>
             {/* Reviews */}
+            <div>
+              <h3 className='house-profile__section-title'>Reviews</h3>
+              <ReviewsList house={house}/>
+            </div>
             <WriteHouseReview user={authenticated} />
             {/* Location */}
             <div>

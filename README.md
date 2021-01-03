@@ -1,6 +1,14 @@
 # Flask React Project
 
-This is the backend for the Flask React project.
+This is the backend for the Flask React project. The project utilizes React.js for the frotend.
+
+# Introduction and Features
+
+This project serves as a clone of the popular online vacation rental marketplace platform, Airbnb, with a scary twist. The online listings for this clone are real sites and landmarks that are claimed to be haunted and subject to paranormal activity, thus the name, Scarebnb. Similar to Airbnb, this clone has the following features:
+
+- Listings: Users can browse listings that are thought to be haunted and read access a detail page providing more information about the listing.
+- Bookings: Users can book a vacation at the haunted domain of their choice. Provided that the venue has the necessary vacancies.
+- Reviews: Reviews and a ghostly star rating can be created for each listing by a registered user.
 
 ## Getting started
 
@@ -53,6 +61,21 @@ This is the backend for the Flask React project.
    psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
    There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
 ***
+
+## Technologies Used
+
+**Backend**
+- Python (Flask)
+- SQLAlchemy Object Relational Mapper
+- Jinja2. Templating engine for HTML.
+- Werkzeug
+- pyjwt. Generates javascript web tokens for user sessions
+- Alembic. Engine for database relational migrations
+
+
+**Frontend**
+- React.js
+
 
 ## Deploy to Heroku
 

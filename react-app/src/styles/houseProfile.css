@@ -117,8 +117,6 @@
   padding: 8px 0;
 }
 
-<<<<<<< HEAD
-=======
 .house-profile__booking-container {
   position: sticky;
   top: 120px;
@@ -131,7 +129,6 @@
   /* background-color: rgba(200, 120, 45, .3) */
 }
 
->>>>>>> main
 .house-profile__description {
   line-height: 1.6em;
 }
@@ -177,7 +174,6 @@
   color: black
 }
 
-<<<<<<< HEAD
 /* ===== BOOKING CARD STYLES ===== */
 .house-profile__booking-card {
   width: 335px;
@@ -244,8 +240,6 @@
   transform: scale(1.03);
   transition: transform 10ms ease-in-out;
 }
-=======
 .ghost--off {
   color: grey
 }
->>>>>>> main

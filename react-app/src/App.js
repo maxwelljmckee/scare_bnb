@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import NavBar from "./components/SplashPage/NavBar";
 import HomePage from "./components/SplashPage/HomePage"
@@ -32,9 +32,6 @@ function App() {
     <BrowserRouter>
       <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} />
       <Switch>
-        <Route path="/" exact={true}>
-          <HomePage></HomePage>
-        </Route>
         <ProtectedRoute exact={true} path="/listings/create" authenticated={authenticated}>
           <CreateHouseForm user={authenticated} />
         </ProtectedRoute>
@@ -43,6 +40,9 @@ function App() {
         </Route>
         <Route path="/listings">
           <ListingsIdx />
+        </Route>
+        <Route path="/">
+          <Redirect to="/listings" />
         </Route>
       </Switch>
     </BrowserRouter>

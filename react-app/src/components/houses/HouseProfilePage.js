@@ -124,7 +124,7 @@ const HouseProfilePage = () => {
           </div>
           <div className='house-profile__body-bottom'>
             {/* Reviews */}
-            <div reviews={house.reviews}>HERES ALL THE REVIEWS!</div>
+            {/* <div reviews={house.reviews}>HERES ALL THE REVIEWS!</div> */}
             {/* Location */}
             <div>
               <h3 className='house-profile__section-title'>Location</h3>

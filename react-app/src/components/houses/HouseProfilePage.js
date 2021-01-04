@@ -80,8 +80,8 @@ const HouseProfilePage = ({ authenticated }) => {
       const body = await response.json()
       setHouse(body)
       setIsLoaded(true)
-      console.log(house.reviews)
-      console.log(body.reviews)
+      // console.log(house.reviews)
+      // console.log(body.reviews)
     }
     getHouse()
   }, [id])

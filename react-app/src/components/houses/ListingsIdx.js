@@ -24,8 +24,5 @@ const ListingsIdx = () => {
   )
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> main
 export default ListingsIdx;

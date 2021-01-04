@@ -24,7 +24,7 @@ function AmenityDialog(props) {
       <DialogTitle id="amenities-dialog-title">Amenities</DialogTitle>
       <DialogContent>
         {amenities.map(amenity => {
-          return <AmenityItem amenity={amenity} />
+          return <AmenityItem key={amenity.id} amenity={amenity} />
         })}
       </DialogContent>
     </Dialog>
@@ -35,7 +35,7 @@ function AmenityDialog(props) {
 export default function AmenitiesList({ house, house: { amenities } }) {
   const [showList, setShowList] = useState(false)
 
-  const mainAmenities = amenities.length > 6 ? amenities.slice(0, 7) : amenities
+  const mainAmenities = amenities.length > 6 ? amenities.slice(0, 6) : amenities
 
   const handleOpen = (e) => {
     e.preventDefault()

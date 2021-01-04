@@ -22,6 +22,17 @@ const LoginForm = ({ authenticated, setAuthenticated, onClose }) => {
     }
   };
 
+  const onDemo = async (e) => {
+    e.preventDefault();
+    const user = await login("demo@aa.io", "123");
+    if (!user.errors) {
+      setAuthenticated(user);
+      onClose()
+    } else {
+      setErrors(user.errors);
+    }
+  };
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -51,6 +62,7 @@ const LoginForm = ({ authenticated, setAuthenticated, onClose }) => {
 
       <FormInput name="Email" required={true} type="text" value={email} onChange={updateEmail} />
       <FormInput name="Password" required={true} type="password" value={password} onChange={updatePassword} />
+      <div className="login-form__button" onClick={onDemo}>Demo Log In</div>
       <div className="login-form__button" onClick={onLogin}>Log In</div>
 
     </form>

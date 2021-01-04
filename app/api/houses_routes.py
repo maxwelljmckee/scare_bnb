@@ -90,9 +90,11 @@ def get_all_houses():
     # db.session.commit()
 
 
-@houses_routes.route('/<id>', methods=['GET'])
+@houses_routes.route('/<int:id>', methods=['GET'])
 def get_house_details(id):
     house = House.query.get(id)
+    reviews = Review.query.filter_by(house_id=id).all()
+
     if house:
         return house.to_dict()
     return {'errors': ['The requested house does not exist']}, 404

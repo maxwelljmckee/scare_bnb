@@ -8,7 +8,7 @@ function ListingReview({ review, user }) {
     return (
         <div className='review-listing'>
             <div className="user-info">
-                <img className="user-profile-pic" src={user.profile_pic_url}/>
+                <img className="user-review-profile-pic" src={user.profile_pic_url}/>
                 <span>{user.first_name}</span>
             </div>
             <div className="user-review-comment">

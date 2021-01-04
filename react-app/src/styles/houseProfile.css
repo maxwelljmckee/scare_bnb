@@ -102,6 +102,19 @@
   line-height: 1.6em;
 }
 
+.review-listing {
+  padding: 7px 0;
+  font-size: 20px;
+}
+
+.user-review-profile-pic {
+  border-radius: 16px;
+}
+
+.reviews-dialog-title {
+  padding-top: 0;
+}
+
 .amenity-item {
   padding: 7px 0;
   font-size: 20px;

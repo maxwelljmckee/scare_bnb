@@ -1,7 +1,7 @@
 # Welcome to Scarebnb
 Scarebnb is a web service that allows users to get their spook on by booking stays at known haunted properties.
 
-# Introduction and Features
+## Introduction and Features
 
 This project serves as a clone of the popular online vacation rental marketplace platform, Airbnb, with a scary twist. The online listings for this clone are real sites and landmarks that are claimed to be haunted and subject to paranormal activity, thus the name, Scarebnb. Similar to Airbnb, this clone has the following features:
 
@@ -22,10 +22,10 @@ This project serves as a clone of the popular online vacation rental marketplace
 **Frontend**
 - React.js
 
-# Roadblocks
+## Roadblocks
 The most notworthy roadblock in the pursuit of this project was its scope. With only 4 days to take it from ground-zero planning phase to shippable product, we set our goals well above the realistic prospects of the provided time frame. As a result, all three of our features – **Listings**, **Bookings**, and **Reviews** – can be Created, but full CRUD functionality will require additional work.
 
-# Future Phases
+## Future Phases
 - **Complete CRUD Functionality for all features**
    - Most of these features can be achieved with the addition of a few simple buttons. However, there will likely be a need for a user-dashboard view where a user can manage their bookings, account details, and other user data.
 - **Scale Seed Data**

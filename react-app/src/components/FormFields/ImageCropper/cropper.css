@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   margin: 20px;
+  margin-top:-15px;
 }
 
 .image-input__container > input {
@@ -16,6 +17,7 @@
   width: 100%;
 
   margin-bottom: 5px;
+  margin-top: -40px;
 }
 
 .image-input__filename {
@@ -51,8 +53,10 @@
 
 .image-input__button {
   padding: 10px;
-  border: 2px solid lightgrey;
+  border: 2px solid orange;
+  background-color: orange;
   border-radius: 100px;
+  margin-top: 40px;
 }
 
 .image-input__button:hover {

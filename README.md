@@ -1,73 +1,19 @@
-# Flask React Project
-
-This is the backend for the Flask React project. The project utilizes React.js for the frotend.
+# Welcome to Scarebnb
+Scarebnb is a web service that allows users to get their spook on by booking stays at known haunted properties.
 
 # Introduction and Features
 
 This project serves as a clone of the popular online vacation rental marketplace platform, Airbnb, with a scary twist. The online listings for this clone are real sites and landmarks that are claimed to be haunted and subject to paranormal activity, thus the name, Scarebnb. Similar to Airbnb, this clone has the following features:
 
-- Listings: Users can browse listings that are thought to be haunted and read access a detail page providing more information about the listing.
-- Bookings: Users can book a vacation at the haunted domain of their choice. Provided that the venue has the necessary vacancies.
-- Reviews: Reviews and a ghostly star rating can be created for each listing by a registered user.
-
-## Getting started
-
-1. Clone this repository (only this branch)
-
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
-
-2. Install dependencies
-
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
-
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
-
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
-
-   ```bash
-   pipenv shell
-   ```
-
-   ```bash
-   flask db upgrade
-   ```
-
-   ```bash
-   flask seed all
-   ```
-
-   ```bash
-   flask run
-   ```
-
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
-
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
-
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
-
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
+- **Listings**: Users can browse listings that are thought to be haunted and read access a detail page providing more information about the listing.
+- **Bookings**: Users can book a vacation at the haunted domain of their choice. Provided that the venue has the necessary vacancies.
+- **Reviews**: Reviews and a ghostly star rating can be created for each listing by a registered user.
 
 ## Technologies Used
 
 **Backend**
 - Python (Flask)
 - SQLAlchemy Object Relational Mapper
-- Jinja2. Templating engine for HTML.
 - Werkzeug
 - pyjwt. Generates javascript web tokens for user sessions
 - Alembic. Engine for database relational migrations
@@ -76,46 +22,15 @@ This project serves as a clone of the popular online vacation rental marketplace
 **Frontend**
 - React.js
 
+# Roadblocks
+The most notworthy roadblock in the pursuit of this project was its scope. With only 4 days to take it from ground-zero planning phase to shippable product, we set our goals well above the realistic prospects of the provided time frame. As a result, all three of our features – **Listings**, **Bookings**, and **Reviews** – can be Created, but full CRUD functionality will require additional work.
 
-## Deploy to Heroku
-
-1. Create a new project on Heroku
-2. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-3. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-4. Run
-
-   ```bash
-   heroku login
-   ```
-
-5. Login to the heroku container registry
-
-   ```bash
-   heroku container:login
-   ```
-
-6. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-7. Push your docker container to heroku from the root directory of your project.
-   This will build the dockerfile and push the image to your heroku container registry
-
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
-
-8. Release your docker container to heroku
-
-   ```bash
-   heroku container:release web -a {NAME_OF_HEROKU_APP}
-   ```
-
-9. set up your database:
-
-   ```bash
-   heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-   heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-   ```
-
-10. Under Settings find "Config Vars" and add any additional/secret .env variables.
-
-11. profit
+# Future Phases
+- **Complete CRUD Functionality for all features**
+   - Most of these features can be achieved with the addition of a few simple buttons. However, there will likely be a need for a user-dashboard view where a user can manage their bookings, account details, and other user data.
+- **Scale Seed Data**
+   - In order to create a more realistic user-experience, seed data should be expanded to include all 50 states.
+- **Searchable Listings**
+   - User will be able to filter listing results by location, name/keyword search, price, and other parameters.
+- **Migrate to `Google Maps Javascript API`**
+   - Given the time constraints of the project, we decided to use the much simpler `Google Maps Embed API` for the sole purpose of expediting the development process. In future updates to the app, a map interface will be added to the Listing-Index page, allowing users to interact with listings on the map, as well as on their unique listing cards.

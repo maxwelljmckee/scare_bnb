@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import EmbedMap from '../EmbedMap';
 
-import AmenitiesList from './AmenitiesList'
+import EmbedMap from '../EmbedMap';
+import BookingCard from '../Bookings/BookingCard';
+import AmenitiesList from './AmenitiesList';
+import Rating from './Rating'
+
+
 import ReviewsList from './ReviewsList'
 import WriteHouseReview from './WriteReview'
 import ReviewPopup from './ReviewPopup'
@@ -14,10 +18,7 @@ function Title({ house }) {
       {/* Location - Name */}
       <span> {/* {house.city}, {house.state} - */} {house.name}</span>
       {/* Rating */}
-      <div className='rating-container'>
-        <i className="fas fa-ghost"></i>
-        {/* <div>{house.reviews.rating}</div> */}
-      </div>
+      <Rating house={house} />
       {/* Location? */}
 
     </div>
@@ -50,7 +51,7 @@ function Description({ house }) {
 
 function Location({ house }) {
   const queryString = () => {
-    return `${house.street_1}+${house.street_2}+${house.city}+${house.state}+${house.postal_code}`
+    return `${house.street_1}+${house.street_2}+${house.city}+${house.state}+${house.postal_code}`;
   }
 
   return (
@@ -128,9 +129,7 @@ const HouseProfilePage = ({ authenticated }) => {
           </div>
           <div className="house-profile__body-right">
             {/* Booking */}
-            <div className="house-profile__booking-container">
-              BOOKING
-            </div>
+            <BookingCard house={house} />
           </div>
           <div className='house-profile__body-bottom'>
             {/* Reviews */}
@@ -142,6 +141,7 @@ const HouseProfilePage = ({ authenticated }) => {
               <WriteHouseReview user={authenticated} />
             </div>
             <div reviews={house.reviews}>HERES ALL THE REVIEWS!</div>
+            {/* <div reviews={house.reviews}>HERES ALL THE REVIEWS!</div> */}
             {/* Location */}
             <div>
               <h3 className='house-profile__section-title'>Location</h3>

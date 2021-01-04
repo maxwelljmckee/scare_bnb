@@ -55,14 +55,12 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
           setAuthenticated={setAuthenticated}
         />
 
-        {!authenticated && (<hr />)}
-
-
         {authenticated && (
           <>
             <div className="usermenu__option">
               Host a home
             </div>
+            <hr />
             <LogoutButton
               setAuthenticated={setAuthenticated}
             />

@@ -18,11 +18,14 @@ const ListingsIdx = () => {
     <div className='listings__container'>
       <div className='title'><h1>Find Spooky Stays Near You</h1></div>
       {allHouses.map(house => {
-        return <ListingCard house={house} />
+        return <ListingCard key={house.id} house={house} />
       })}
     </div>
   )
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 export default ListingsIdx;

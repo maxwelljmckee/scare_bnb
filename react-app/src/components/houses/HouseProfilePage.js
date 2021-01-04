@@ -30,10 +30,10 @@ function SubTitle({ house }) {
     <div className="house-profile__subtitle">
       {/* Hosted by */}
       <span>Hosted by {house.host.first_name}</span>
+      {/* Description */}
+      <span> {house.max_guests} Guests • {house.num_beds} Beds • {house.num_baths} Baths </span>
       {/* Pic */}
       <img src={house.host.profile_pic_url} />
-      {/* Description */}
-      <span> • {house.max_guests} Guests • {house.num_beds} Beds • {house.num_baths} Baths </span>
     </div>
   )
 }
@@ -138,7 +138,10 @@ const HouseProfilePage = ({ authenticated }) => {
               <h3 className='house-profile__section-title'>Reviews</h3>
               <ReviewsList house={house}/>
             </div>
-            <WriteHouseReview user={authenticated} />
+            <div>
+              <WriteHouseReview user={authenticated} />
+            </div>
+            <div reviews={house.reviews}>HERES ALL THE REVIEWS!</div>
             {/* Location */}
             <div>
               <h3 className='house-profile__section-title'>Location</h3>

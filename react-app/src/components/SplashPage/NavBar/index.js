@@ -17,9 +17,11 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
 
       </div>
       <div className="navbar__right">
-        <Link className="navbar__link" to="/listings/create">
-          Become a host
-        </Link>
+        {authenticated && (
+          <Link className="navbar__link" to="/listings/create">
+            Become a host
+          </Link>
+        )}
 
         <UserMenu authenticated={authenticated} setAuthenticated={setAuthenticated} />
       </div>

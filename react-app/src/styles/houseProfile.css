@@ -80,6 +80,34 @@
   font-weight: bold;
 }
 
+.house-profile__subtitle {
+  height: 60px;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:  "top pic"
+  "bottom pic";
+}
+
+.house-profile__subtitle > span:first-child {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.house-profile__subtitle > span:nth-child(2) {
+  display: flex;
+  align-items: flex-end;
+}
+
+.house-profile__subtitle > img{
+  height: 100%;
+
+  border-radius: 100px;
+
+  grid-area: pic;
+}
 
 
 /* ===== COMPONENT STYLES ===== */
@@ -90,6 +118,9 @@
 }
 
 .house-profile__booking-container {
+  position: sticky;
+  top: 120px;
+
   width: 335px;
   height: 250px;
   border: 1px solid rgb(211, 211, 211);
@@ -120,6 +151,10 @@
   font-size: 20px;
 }
 
+.amenity-item > *:first-child {
+  width: 30px;
+}
+
 #amenities-dialog-title {
   padding-bottom: 0;
 }
@@ -138,8 +173,24 @@
   transition: transform 100ms ease-in-out;
 }
 
-
 /* ===== GHOST RATING ===== */
+.ghost-rating__container > * {
+  margin: 2px;
+  cursor: pointer;
+}
+
+.ghost-rating__container > *:hover {
+  text-shadow: 0 0 2px orange;
+}
+
+.ghost--on {
+  color: black
+}
+
+.ghost--off {
+  color: grey
+}
+
 .ghost-rating__container {
   margin: 10px;
 }
@@ -156,8 +207,4 @@
 
 .ghost--on {
   color: black
-}
-
-.ghost--off {
-  color: grey
 }

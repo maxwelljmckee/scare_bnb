@@ -1,3 +1,4 @@
 /* TODO Add site wide styles */
 @import './styles/reset.css';
+@import './styles/houseProfile.css';
 @import './styles/listings.css';

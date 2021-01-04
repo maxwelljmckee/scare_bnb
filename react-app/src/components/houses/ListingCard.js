@@ -6,7 +6,7 @@ const ListingCard = ({ house }) => {
   const history = useHistory();
 
   const handleClick = (e) => {
-    history.push(`/listings/${house.id}`)
+    history.push(`listings/${house.id}`)
   }
 
   return (
@@ -16,7 +16,7 @@ const ListingCard = ({ house }) => {
         <i className="fas fa-ghost"></i>
         {/* <div>{house.reviews.rating}</div> */}
       </div>
-      <h2 id={`house-${house.id}`}>{house.name}</h2>
+      <h2>{house.name}</h2>
       <h3><strong>${house.price}</strong> / night</h3>
     </div>
   )

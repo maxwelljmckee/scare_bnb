@@ -79,28 +79,6 @@ def create_house():
         return house.to_dict()
     return {'errors': validator_errors_to_error_messages(form.errors)}
 
-    # host_id = request.json.get("hostId", None)
-    # name = request.json.get("name", None)
-    # street_1 = request.json.get("street1", None)
-    # street_2 = request.json.get("street2", None)
-    # city = request.json.get("city", None)
-    # state_id = request.json.get("state", None)
-    # postal_code= request.json.get("postalCode", None)
-    # house_pic_url= request.json.get("housePicUrl", None)
-    # description = request.json.get("description", None)
-    # max_guests = request.json.get("maxGuests", None)
-    # num_bedrooms = request.json.get("numBedrooms", None)
-    # num_beds = request.json.get("numBeds", None)
-    # num_baths = request.json.get("numBaths", None)
-    # price = request.json.get("price", None)
-
-    # state = State.query.get(state)
-
-
-
-
-
-
 
 @houses_routes.route('/')
 def get_all_houses():
@@ -109,11 +87,16 @@ def get_all_houses():
     return jsonify(data)
 
 
-
-
-
 # POST request
     # request.json.get('name', None)
     # new_house = {k: v for k, v in request.json.items() if k not in ('csrf', '')}
     # db.session.add(new_house)
     # db.session.commit()
+
+
+@houses_routes.route('/<id>', methods=['GET'])
+def get_house_details(id):
+    house = House.query.get(id)
+    if house:
+        return house.to_dict()
+    return {'errors': ['The requested house does not exist']}, 404

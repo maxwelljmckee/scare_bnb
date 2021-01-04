@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { Redirect } from 'react-router-dom'
 
 import LogoutButton from '../../auth/LogoutButton';
 import LoginFormModal from '../../auth/LoginFormModal'
@@ -57,7 +58,7 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
 
         {authenticated && (
           <>
-            <div className="usermenu__option">
+            <div className="usermenu__option" onClick={e => <Redirect to="/listings/create" />}>
               Host a home
             </div>
             <hr />

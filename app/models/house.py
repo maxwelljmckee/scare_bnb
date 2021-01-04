@@ -81,6 +81,11 @@ class House(db.Model):
         pass
 
     def to_dict(self):
+        if not self.house_pic_url:
+            url = "https://scarebnb-hosting.s3.us-east-2.amazonaws.com/default-house-image.jpg"
+        else:
+            url = self.house_pic_url
+
         return {
             "id": self.id,
             "host_id": self.host_id,
@@ -91,7 +96,7 @@ class House(db.Model):
             "city": self.city,
             "state_id": self.state_id,
             "postal_code": self.postal_code,
-            "house_pic_url": self.house_pic_url,
+            "house_pic_url": url,
             "description": self.description,
             "max_guests": self.max_guests,
             "num_bedrooms": self.num_bedrooms,

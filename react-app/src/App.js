@@ -36,9 +36,9 @@ function App() {
         <Route path="/test">
           <GhostRating />
         </Route>
-        <Route path="/listings/create" exact={true}>
-          <CreateHouseForm />
-        </Route>
+        <ProtectedRoute exact={true} path="/listings/create" authenticated={authenticated}>
+          <CreateHouseForm user={authenticated} />
+        </ProtectedRoute>
         <Route path='/listings/:id' exact={true}>
           <HouseProfilePage />
         </Route>

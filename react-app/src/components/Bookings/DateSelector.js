@@ -1,27 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
+import { context } from '../../App';
 
-const DateSelector = () => {
+
+const DateSelector = ({ house }) => {
+  const user = useContext(context);
+  const history = useHistory()
+
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
-  const [numGuests, setNumGuests] = useState(1)
+  const [numGuests, setNumGuests] = useState('');
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const newBooking = {
+      houseId: house.id,
+      guestId: user.id,
+      checkin: startDate,
+      checkout: endDate,
+      numGuests
+    }
 
+    const res = await fetch('/api/bookings/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newBooking)
+    })
+    history.push('/listings')
   }
 
   return (
-    // <form>
       <form className='date-selector__container' onSubmit={handleSubmit}>
         <DatePicker
           selected={startDate}
           onChange={date => setStartDate(date)}
           selectsStart
-          startDate={startDate}
-          value={startDate}
-          endDate={endDate}
+          startDate={startDate || new Date()}
+          endDate={endDate || new Date()}
           minDate={new Date()}
           placeholderText='Select Start Date'
           required
@@ -30,11 +50,9 @@ const DateSelector = () => {
           selected={endDate}
           onChange={date => setEndDate(date)}
           selectsEnd
-          startDate={startDate}
-          endDate={endDate}
-          value={endDate}
+          startDate={startDate || new Date()}
+          endDate={endDate || new Date()}
           minDate={startDate || new Date()}
-          maxDate={'hello'}
           placeholderText='Select End Date'
           required
         />
@@ -47,9 +65,10 @@ const DateSelector = () => {
             onChange={(e) => setNumGuests(e.target.value)}
           />
         </div>
-        <button type='submit'>Book a Reservation</button>
+        <div className='booking-card__submit'>
+          <button type='submit'>Book a Reservation</button>
+        </div>
       </form>
-    // </form>
   );
 };
 

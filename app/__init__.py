@@ -9,6 +9,7 @@ from .models import *
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.houses_routes import houses_routes
+from .api.bookings_routes import bookings_routes
 
 from .api.utils.awsS3 import upload_file_to_s3
 
@@ -35,6 +36,7 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(houses_routes, url_prefix='/api/houses')
+app.register_blueprint(bookings_routes, url_prefix='/api/bookings')
 db.init_app(app)
 Migrate(app, db)
 

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import React, { useState, useEffect, createContext } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import NavBar from "./components/SplashPage/NavBar";
 import HomePage from "./components/SplashPage/HomePage"
@@ -9,6 +9,10 @@ import { authenticate } from "./services/auth";
 import ListingsIdx from './components/houses/ListingsIdx'
 import CreateHouseForm from './components/houses/CreateHouseForm'
 import HouseProfilePage from './components/houses/HouseProfilePage'
+
+
+export const context = createContext(false)
+
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -29,24 +33,27 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} />
-      <Switch>
-        <ProtectedRoute exact={true} path="/listings/create" authenticated={authenticated}>
-          <CreateHouseForm user={authenticated} />
-        </ProtectedRoute>
-        <Route path='/listings/:id' exact={true}>
-          <HouseProfilePage />
-        </Route>
-        <Route path="/listings">
-          <ListingsIdx />
-        </Route>
-        <Route path="/">
-          <Redirect to="/listings" />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <context.Provider value={authenticated}>
+      <BrowserRouter>
+        <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} />
+        <Switch>
+          <Route path="/" exact={true}>
+            <HomePage></HomePage>
+          </Route>
+          <ProtectedRoute exact={true} path="/listings/create" authenticated={authenticated}>
+            <CreateHouseForm user={authenticated} />
+          </ProtectedRoute>
+          <Route path='/listings/:id' exact={true}>
+            <HouseProfilePage />
+          </Route>
+          <Route path="/listings">
+            <ListingsIdx />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </context.Provider>
   );
 }
+
 
 export default App;

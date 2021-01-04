@@ -1,5 +1,5 @@
 import React from 'react';
-// import { MonthView } from '@devexpress/dx-react-scheduler-material-ui';
+
 
 import Rating from '../houses/Rating';
 import DateSelector from './DateSelector'
@@ -12,7 +12,7 @@ const BookingCard = ({ house }) => {
           <h3><span>${house.price}</span> / night</h3>
           <Rating house={house} />
         </div>
-        <DateSelector />
+        <DateSelector house={house} />
       </div>
     </div>
   )

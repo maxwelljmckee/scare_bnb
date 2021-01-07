@@ -9,7 +9,7 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
   return (
     <nav>
       <div className="navbar__left">
-        <Link to="/"> <img className="navbar__logo" src="/media/logo-full-black.png" /> </Link>
+        <Link to="/"> <img className="navbar__logo" src="./media/logo-full-black.png" /> </Link>
 
       </div>
       <div className="navbar__center">

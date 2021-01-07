@@ -21,7 +21,7 @@ EXPOSE 8000
 
 WORKDIR /var/www
 COPY . .
-COPY /react-app/public/media/ app/static/
+COPY /react-app/public/media/* app/static/media/
 COPY --from=build-stage /react-app/build/* app/static/
 
 # Install Python Dependencies

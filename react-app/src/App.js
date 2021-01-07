@@ -14,7 +14,7 @@ import HouseProfilePage from './components/houses/HouseProfilePage'
 export const context = createContext(false)
 
 
-function App() {
+export default function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
@@ -54,6 +54,3 @@ function App() {
     </context.Provider>
   );
 }
-
-
-export default App;

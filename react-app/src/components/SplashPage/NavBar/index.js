@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom';
 
 import UserMenu from './UserMenu'
 
+import spookyBoi from '../../../media/logo-full-black.png'
+
 import './NavBar.css'
 
 const NavBar = ({ authenticated, setAuthenticated }) => {
   return (
     <nav>
       <div className="navbar__left">
-        <Link to="/"> <img className="navbar__logo" src="/logos/logo-full-black.png" /> </Link>
+        <Link to="/"> <img className="navbar__logo" src={spookyBoi} /> </Link>
 
       </div>
       <div className="navbar__center">

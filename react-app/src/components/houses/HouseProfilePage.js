@@ -67,24 +67,28 @@ function Location({ house }) {
 
 
 
-const HouseProfilePage = ({ authenticated }) => {
+const HouseProfilePage = ({ user }) => {
   const { id } = useParams();
   const history = useHistory();
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [house, setHouse] = useState(null);
+  // const [houseReviews, setHouseReviews] = useState([]);
 
   useEffect(() => {
 
     const getHouse = async () => {
       const response = await fetch(`/api/houses/${id}`)
       const body = await response.json()
+      console.log(body)
       setHouse(body)
       setIsLoaded(true)
-      // console.log(house.reviews)
-      // console.log(body.reviews)
+      console.log(body)
     }
+
+
     getHouse()
+
   }, [id])
 
   const handleRedirect = () => {
@@ -138,9 +142,10 @@ const HouseProfilePage = ({ authenticated }) => {
               <ReviewsList house={house}/>
             </div>
             <div>
-              <WriteHouseReview user={authenticated} />
+              {/* <WriteHouseReview user={authenticated} /> */}
+              <ReviewPopup user={user}/>
             </div>
-            <div reviews={house.reviews}>HERES ALL THE REVIEWS!</div>
+            {/* <div>HERE'S ALL THE REVIEWS!</div> */}
             {/* <div reviews={house.reviews}>HERES ALL THE REVIEWS!</div> */}
             {/* Location */}
             <div>

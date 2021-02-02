@@ -4,12 +4,14 @@ import { Dialog, DialogContent, DialogTitle } from '@material-ui/core'
 
 
 
-function ListingReview({ review, user }) {
+function ListingReview({ review }) {
+
+
     return (
         <div className='review-listing'>
             <div className="user-info">
-                <img className="user-review-profile-pic" src={user.profile_pic_url}/>
-                <span>{user.first_name}</span>
+                <img className="user-review-profile-pic" src={review.user.profile_pic_url}/>
+                <span>{review.user.first_name}</span>
             </div>
             <div className="user-review-comment">
                 <span>{review.comment}</span>
@@ -29,7 +31,7 @@ function ReviewDialog(props) {
             <DialogTitle id="reviews-dialog-title">Reviews</DialogTitle>
             <DialogContent>
                 {reviews.map(review => {
-                    return <ListingReview review={review}/>
+                    return <ListingReview key={review.id} review={review}/>
                 })}
             </DialogContent>
         </Dialog>
@@ -37,7 +39,7 @@ function ReviewDialog(props) {
 }
 
 
-export default function ReviewsList({ house, house: { reviews } }) {
+export default function ReviewsList({ house: { reviews } }) {
     const [showList, setShowList] = useState(false)
 
     const mainReviews = reviews.length > 6 ? reviews.slice(0,7) : reviews
@@ -50,6 +52,14 @@ export default function ReviewsList({ house, house: { reviews } }) {
       const handleClose = (e) => {
         e.preventDefault()
         setShowList(false)
+    }
+
+    if (reviews.length === 0) {
+        return (
+            <div id="no-reviews-div">
+                <h2>No reviews (yet)</h2>
+            </div>
+        )
     }
 
     return (

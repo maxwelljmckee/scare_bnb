@@ -94,9 +94,14 @@ def get_all_houses():
 def get_house_details(id):
     house = House.query.get(id)
     reviews = Review.query.filter_by(house_id=id).all()
+    # house["reviewsList"] = reviews
+    reviews = [review.to_dict() for review in reviews]
 
     if house:
-        return house.to_dict()
+        house = house.to_dict()
+        house["reviews"] = reviews
+        return house
+
     return {'errors': ['The requested house does not exist']}, 404
 
 

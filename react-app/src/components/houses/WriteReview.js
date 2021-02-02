@@ -24,10 +24,10 @@ const WriteHouseReview = ({ user }) => {
         const newReview = {
             // user,
             // userId: user.id,
-            userId: 1,
-            // house_id
-            rating: 1,
-            comment
+            userId: user.id,
+            house_id: id,
+            rating: rating,
+            comment: comment
         };
 
         await fetch(`/api/houses/${id}/reviews`, {
@@ -56,7 +56,7 @@ const WriteHouseReview = ({ user }) => {
             )}
             <div>
                 {/* Star Rating goes here */}
-                <GhostRating setRating={setRating} rate={rating} />
+                <GhostRating setRating={setRating} rating={rating} />
                 {/* <input type="number"
                     name="rating"
                     value={rating}

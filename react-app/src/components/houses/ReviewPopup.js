@@ -6,6 +6,8 @@ const ReviewPopup = (props) => {
 
     const [open, setOpen] = useState(false)
 
+    const user = props.user
+
     const handleOpenClick = (e) => {
         e.preventDefault()
         setOpen(true)
@@ -18,9 +20,9 @@ const ReviewPopup = (props) => {
 
     return (
         <>
-        <button onClick={handleOpenClick}>Write Review</button>
+        <button onClick={handleOpenClick}>Write a Review</button>
         <Dialog open={open} onClose={handleCloseClick}>
-            <WriteHouseReview />
+            <WriteHouseReview user={user}/>
         </Dialog>
         </>
     )

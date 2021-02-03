@@ -20,62 +20,73 @@ const DateSelector = ({ house }) => {
   const [endDate, setEndDate] = useState('');
   const [numGuests, setNumGuests] = useState('');
 
-  // MODAL SETTINGS
-  const [open, setOpen] = useState(false);
+  // MODAL CONFIG //
+  const [openLogin, setOpenLogin] = useState(false);
+  const [openConfirm, setOpenConfirm] = useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true)
+  const handleCloseLogin = () => {
+    setOpenLogin(false)
   }
 
-  const handleClose = () => {
-    setOpen(false)
+  const handleCloseConfirm = () => {
+    setOpenConfirm(false)
+  }
+  
+  const handleModal = (e) => {
+    e.preventDefault()
+    if (!authenticated) {
+      setOpenLogin(true);
+    } else {
+      setOpenConfirm(true)
+      const newBooking = {
+          houseId: house.id,
+          guestId: authenticated.id,
+          checkin: startDate,
+          checkout: endDate,
+          numGuests
+        }
+      console.log('HIT MODAL', newBooking);
+      
+    }
   }
   /////////////////
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!authenticated) {
-      handleClickOpen()
-    } else {
-
-
-      // CREATE CONFIRMATION MODAL BEFORE SENDING POST REQUEST
-      // ALSO DEBUG REDIRECT TO '/'
-      
-
-      // const newBooking = {
-      //   houseId: house.id,
-      //   guestId: authenticated.id,
-      //   checkin: startDate,
-      //   checkout: endDate,
-      //   numGuests
-      // }
-  
-      // const res = await fetch('/api/bookings/create', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify(newBooking)
-      // })
-      console.log('stuffnstuff');
-    }
-  }
+  // const handleSubmit = async (newBooking) => {
+  //   e.preventDefault();
+  //   const res = await fetch('/api/bookings/create', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(newBooking)
+  //   })
+  // }
 
   return (
     <>
+      {/* LOGIN MODAL FOR UNAUTHENTICATED USER */}
       <Dialog
-        open={open}
-        onClose={handleClose}
+        open={openLogin}
+        onClose={handleCloseLogin}
       >
         <DialogContent>
           <LoginForm 
             authenticated={authenticated} 
             setAuthenticated={setAuthenticated} 
-            onClose={handleClose} />
+            onClose={handleCloseLogin} />
         </DialogContent>
       </Dialog>
-      <form className='date-selector__container' onSubmit={handleSubmit}>
+
+      {/* CONFIRMATION MODAL FOR AUTHENTICATED USER */}
+      {/* <Dialog
+        open={openConfirm}
+        onClose={handleCloseConfirm}
+      >
+
+      </Dialog> */}
+
+      {/* DATE SELECTION FORM */}
+      <form className='date-selector__container' onSubmit={handleModal}>
         <DatePicker
           selected={startDate}
           onChange={date => setStartDate(date)}

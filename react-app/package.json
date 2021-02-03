@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.21.1",
     "date-fns": "^2.16.1",
+    "dateformat": "^4.5.1",
     "dotenv": "^8.2.0",
     "http-proxy-middleware": "^1.0.5",
     "react": "^16.13.1",

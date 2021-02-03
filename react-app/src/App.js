@@ -33,7 +33,7 @@ export default function App() {
   }
 
   return (
-    <context.Provider value={authenticated}>
+    <context.Provider value={{authenticated, setAuthenticated}}>
       <BrowserRouter>
         <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} />
         <Switch>

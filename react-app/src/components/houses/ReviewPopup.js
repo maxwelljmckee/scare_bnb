@@ -1,16 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Dialog } from '@material-ui/core';
+import DialogContent from '@material-ui/core/DialogContent';
+
 import WriteHouseReview from './WriteReview';
 // import LoginFormDialog from '../SplashPage/auth/LoginFormModal'
 import LoginForm from '../SplashPage/auth/LoginFormModal/LoginForm'
+import { context } from '../../App';
 
 const ReviewPopup = (props) => {
+    const userData = useContext(context)
+    const { authenticated, setAuthenticated } = userData
 
     const [open, setOpen] = useState(false)
+    const [openLogin, setOpenLogin] = useState(false);
 
     const user = props.user
-    const authenticated = props.authenticated
-    console.log(authenticated)
+
+
+    const handleCloseLogin = () => {
+        setOpenLogin(false)
+    }
 
     const handleOpenClick = (e) => {
         e.preventDefault()
@@ -22,21 +31,28 @@ const ReviewPopup = (props) => {
         setOpen(false)
     }
 
-    // if (!user) {
+    if (!authenticated) {
 
-    //     return (
-    //         <>
-    //         <button onClick={handleOpenClick}>Write a Review</button>
-    //         <Dialog open={open} onClose={handleCloseClick}>
-    //             <LoginForm {...props} />
-    //         </Dialog>
-    //         </>
-    //     )
-    // }
+        return (
+            <>
+            <button className="write-review-button" onClick={handleOpenClick}>Write a Review</button>
+            <Dialog
+            open={open}
+            onClose={handleCloseClick}
+            >
+                <DialogContent>
+                    <LoginForm {...props} onClose={handleCloseLogin}/>
+                </DialogContent>
+            </Dialog>
+            </>
+        )
+    }
 
     return (
         <>
-        <button onClick={handleOpenClick}>Write a Review</button>
+        <div className="write-review-button-container">
+            <button className="write-review-button" onClick={handleOpenClick}>Write a Review</button>
+        </div>
         <Dialog open={open} onClose={handleCloseClick}>
             <WriteHouseReview user={user}/>
         </Dialog>

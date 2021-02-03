@@ -139,7 +139,7 @@ const HouseProfilePage = ({ user, authenticated, setAuthenticated }) => {
               <h3 className='house-profile__section-title'>Reviews</h3>
               <ReviewsList house={house}/>
             </div>
-            <div>
+            <div className="review-popup-container">
               {/* <WriteHouseReview user={authenticated} /> */}
               <ReviewPopup user={user} authenticated={authenticated} setAuthenticated={setAuthenticated}/>
             </div>

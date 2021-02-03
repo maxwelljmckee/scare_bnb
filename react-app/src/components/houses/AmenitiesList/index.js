@@ -54,7 +54,9 @@ export default function AmenitiesList({ house, house: { amenities } }) {
       })}
 
       {amenities.length > 6 && (
-        <button onClick={handleOpen}>Show all {amenities.length} amenities</button>
+        <div className="show-amenities-container">
+          <button className="show-amenities-button" onClick={handleOpen}>Show all {amenities.length} amenities</button>
+        </div>
       )}
 
       <AmenityDialog

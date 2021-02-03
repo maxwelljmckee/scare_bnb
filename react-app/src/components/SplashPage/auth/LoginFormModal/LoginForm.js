@@ -41,9 +41,9 @@ const LoginForm = ({ authenticated, setAuthenticated, onClose }) => {
     setPassword(e.target.value);
   };
 
-  if (authenticated) {
-    return <Redirect to="/" />;
-  }
+  // if (authenticated) {
+  //   return <Redirect to="/" />;
+  // }
 
   return (
     <form className="login-form">

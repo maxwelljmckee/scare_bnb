@@ -62,6 +62,16 @@ export default function ReviewsList({ house: { reviews } }) {
         )
     }
 
+    if (reviews.length <= 6) {
+        return (
+            <div>
+                {mainReviews.map(review => {
+                    return <ListingReview key={`ListingReview-${review.id}`} review={review}/>
+                })}
+            </div>
+        )
+    }
+
     return (
         <div>
             {mainReviews.map(review => {
@@ -69,7 +79,9 @@ export default function ReviewsList({ house: { reviews } }) {
             })}
 
             {reviews.length > 6 && (
-                <button onClick={handleOpen}>Show all {reviews.length} reviews</button>
+                <div className="show-all-reviews-container">
+                    <button className="show-all-reviews-button" onClick={handleOpen}>Show all {reviews.length} reviews</button>
+                </div>
             )}
 
             <ReviewDialog

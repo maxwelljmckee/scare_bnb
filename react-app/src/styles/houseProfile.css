@@ -226,20 +226,59 @@
   width: 100%;
 }
 
-.booking-card__submit button {
+.booking-card__submit button,
+.booking-confirm-button {
   width: 208px;
   border: 1px solid rgb(211, 211, 211);
   border-radius: 15px;
   height: 35px;
   margin: 5px;
   padding: 5px;
+  text-transform: uppercase;
 }
 
-.booking-card__submit button:hover {
+.booking-card__submit button:hover,
+.booking-confirm-button:hover {
   box-shadow: 0 0 7px 1px rgba(170, 170, 170, .5);
   transform: scale(1.03);
   transition: transform 10ms ease-in-out;
 }
+
 .ghost--off {
   color: grey
+}
+
+
+
+
+
+
+/* ===== BOOKING CONFIRMATION MODAL ===== */
+.booking-confirm-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 400px;
+    margin-bottom: 8px;
+}
+
+.booking-confirm-modal img {
+    width: 350px;
+    border-radius: 5px;
+}
+
+.booking-confirm__title {
+    width: 300px;
+    margin: 8px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.booking-confirm__numGuests,
+.booking-confirm__checkin,
+.booking-confirm__checkout {
+    width: 300px;
+    margin: 8px;
 }

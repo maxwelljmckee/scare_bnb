@@ -4,21 +4,51 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
 import { context } from '../../App';
+import LoginForm from '../SplashPage/auth/LoginFormModal/LoginForm';
+import BookingConfirmModal from './BookingConfirmModal';
+import { Dialog } from '@material-ui/core'
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
 
 
 const DateSelector = ({ house }) => {
-  const user = useContext(context);
-  const history = useHistory()
+  const userData = useContext(context);
+  const {authenticated, setAuthenticated} = userData
+  const history = useHistory();
 
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [numGuests, setNumGuests] = useState('');
 
-  const handleSubmit = async (e) => {
+  // MODAL CONFIG //
+  const [openLogin, setOpenLogin] = useState(false);
+  const [openConfirm, setOpenConfirm] = useState(false);
+
+  const handleCloseLogin = () => {
+    setOpenLogin(false)
+  }
+
+  const handleCloseConfirm = () => {
+    setOpenConfirm(false)
+  }
+  
+  const handleModal = (e) => {
     e.preventDefault()
+    if (!authenticated) {
+      setOpenLogin(true);
+    } else {
+      
+      setOpenConfirm(true);
+    }
+  }
+  /////////////////
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     const newBooking = {
       houseId: house.id,
-      guestId: user.id,
+      guestId: authenticated.id,
       checkin: startDate,
       checkout: endDate,
       numGuests
@@ -31,11 +61,46 @@ const DateSelector = ({ house }) => {
       },
       body: JSON.stringify(newBooking)
     })
-    history.push('/listings')
+
+    setNumGuests('');
+    setStartDate('');
+    setEndDate('');
+    handleCloseConfirm();
   }
 
   return (
-      <form className='date-selector__container' onSubmit={handleSubmit}>
+    <>
+      {/* LOGIN MODAL FOR UNAUTHENTICATED USER */}
+      <Dialog
+        open={openLogin}
+        onClose={handleCloseLogin}
+      >
+        <DialogContent>
+          <LoginForm 
+            authenticated={authenticated} 
+            setAuthenticated={setAuthenticated} 
+            onClose={handleCloseLogin} />
+        </DialogContent>
+      </Dialog>
+
+      {/* CONFIRMATION MODAL FOR AUTHENTICATED USER */}
+      <Dialog
+        open={openConfirm}
+        onClose={handleCloseConfirm}
+      >
+        <DialogContent>
+          <BookingConfirmModal 
+            house={house}
+            checkin={startDate}
+            checkout={endDate}
+            numGuests={numGuests}
+            handleSubmit={handleSubmit}
+          />
+        </DialogContent>
+      </Dialog>
+
+      {/* DATE SELECTION FORM */}
+      <form className='date-selector__container' onSubmit={handleModal}>
         <DatePicker
           selected={startDate}
           onChange={date => setStartDate(date)}
@@ -69,6 +134,7 @@ const DateSelector = ({ house }) => {
           <button type='submit'>Book a Reservation</button>
         </div>
       </form>
+    </>
   );
 };
 

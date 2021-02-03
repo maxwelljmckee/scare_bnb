@@ -42,7 +42,7 @@ function ReviewDialog(props) {
 export default function ReviewsList({ house: { reviews } }) {
     const [showList, setShowList] = useState(false)
 
-    const mainReviews = reviews.length > 6 ? reviews.slice(0,7) : reviews
+    const mainReviews = reviews.length > 6 ? reviews.slice(0,6) : reviews
 
     const handleOpen = (e) => {
         e.preventDefault()

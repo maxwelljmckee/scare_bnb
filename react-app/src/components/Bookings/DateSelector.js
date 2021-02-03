@@ -5,10 +5,10 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import { context } from '../../App';
 import LoginForm from '../SplashPage/auth/LoginFormModal/LoginForm';
+import BookingConfirmModal from './BookingConfirmModal';
 import { Dialog } from '@material-ui/core'
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import { authenticate } from '../../services/auth';
 
 
 const DateSelector = ({ house }) => {
@@ -37,30 +37,36 @@ const DateSelector = ({ house }) => {
     if (!authenticated) {
       setOpenLogin(true);
     } else {
-      setOpenConfirm(true)
-      const newBooking = {
-          houseId: house.id,
-          guestId: authenticated.id,
-          checkin: startDate,
-          checkout: endDate,
-          numGuests
-        }
-      console.log('HIT MODAL', newBooking);
       
+      setOpenConfirm(true);
     }
   }
   /////////////////
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  // const handleSubmit = async (newBooking) => {
-  //   e.preventDefault();
-  //   const res = await fetch('/api/bookings/create', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(newBooking)
-  //   })
-  // }
+    const newBooking = {
+      houseId: house.id,
+      guestId: authenticated.id,
+      checkin: startDate,
+      checkout: endDate,
+      numGuests
+    }
+
+    const res = await fetch('/api/bookings/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newBooking)
+    })
+
+    setNumGuests('');
+    setStartDate('');
+    setEndDate('');
+    handleCloseConfirm();
+  }
 
   return (
     <>
@@ -78,12 +84,20 @@ const DateSelector = ({ house }) => {
       </Dialog>
 
       {/* CONFIRMATION MODAL FOR AUTHENTICATED USER */}
-      {/* <Dialog
+      <Dialog
         open={openConfirm}
         onClose={handleCloseConfirm}
       >
-
-      </Dialog> */}
+        <DialogContent>
+          <BookingConfirmModal 
+            house={house}
+            checkin={startDate}
+            checkout={endDate}
+            numGuests={numGuests}
+            handleSubmit={handleSubmit}
+          />
+        </DialogContent>
+      </Dialog>
 
       {/* DATE SELECTION FORM */}
       <form className='date-selector__container' onSubmit={handleModal}>

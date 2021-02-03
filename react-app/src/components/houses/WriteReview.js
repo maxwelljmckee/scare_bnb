@@ -41,42 +41,44 @@ const WriteHouseReview = ({ user }) => {
     }
 
     return (
-        <form className='write-review-form' onSubmit={handleSubmit}>
-            <div className="write-review-form__top">
+        <div className="write-review-container">
+            <form className='write-review-form' onSubmit={handleSubmit}>
+                <div className="write-review-form__top">
+                    <div className="write-review-header">
+                        <h1>Write a Review</h1>
+                    </div>
+                </div>
+                {errors.length !== 0 && (
+                    <div className="write-review-form__errors">
+                        {errors.map((error) => (
+                            <div>{error}</div>
+                        ))}
+                    </div>
+                )}
                 <div>
-                    <h1>Write a Review</h1>
+                    {/* Star Rating goes here */}
+                    <GhostRating setRating={setRating} rating={rating} />
+                    {/* <input type="number"
+                        name="rating"
+                        value={rating}
+                        onChange={(e) => setRating(e.target.value)}
+                        ></input> */}
                 </div>
-            </div>
-            {errors.length !== 0 && (
-                <div className="write-review-form__errors">
-                    {errors.map((error) => (
-                        <div>{error}</div>
-                    ))}
+                <div>
+                    <textarea
+                        rows="50"
+                        cols="50"
+                        name='comment'
+                        placeholder='Write your review...'
+                        value={comment}
+                        onChange={(e) => setComment(e.target.value)}
+                    />
                 </div>
-            )}
-            <div>
-                {/* Star Rating goes here */}
-                <GhostRating setRating={setRating} rating={rating} />
-                {/* <input type="number"
-                    name="rating"
-                    value={rating}
-                    onChange={(e) => setRating(e.target.value)}
-                    ></input> */}
-            </div>
-            <div>
-                <textarea
-                    rows="50"
-                    cols="50"
-                    name='comment'
-                    placeholder='Write your review...'
-                    value={comment}
-                    onChange={(e) => setComment(e.target.value)}
-                />
-            </div>
-            <div>
-                <button type='submit'>Submit</button>
-            </div>
-        </form>
+                <div className="write-review-submit-container">
+                    <button className="write-review-submit" type='submit'>Submit</button>
+                </div>
+            </form>
+        </div>
     )
 
 }

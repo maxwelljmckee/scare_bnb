@@ -1,10 +1,16 @@
+.write-review-container {
+    display: flex;
+    align-items: center;
+}
+
+
 .write-review-form {
     font-family: "Roboto", sans-serif;
-    font-size: 12px;
+    font-size: 18px;
     width: 500px;
 
     /* margin: 0px 0px 80px; */
-    padding: 20px;
+    padding: 50px;
     border-radius: 10px;
     box-shadow: 0 0 10px 1px;
 
@@ -15,13 +21,32 @@
 }
 
 .write-review-form h1 {
-    font-size: 20px;
+    font-size: 32px;
 }
 
 .write-review-form textarea {
     resize: none;
-    margin: 8px;
-    height: 100%;
-    width: 100%;
+    /* margin: 20px; */
+    padding: 10px;
+    height: 500px;
+    /* width: 100%; */
+    width: 450px;
     border-radius: 7px;
+}
+
+.write-review-submit-container {
+    padding-top: 30px;
+}
+
+.write-review-submit {
+    background-color: orange;
+    width: 200px;
+    border-radius: 100px;
+    font-size: 24px;
+    border: orange;
+}
+
+.write-review-submit:hover {
+    cursor: pointer;
+    border: 1px solid black;
 }

@@ -133,6 +133,19 @@
   line-height: 1.6em;
 }
 
+.review-listing {
+  padding: 7px 0;
+  font-size: 20px;
+}
+
+.user-review-profile-pic {
+  border-radius: 16px;
+}
+
+.reviews-dialog-title {
+  padding-top: 0;
+}
+
 .amenity-item {
   padding: 7px 0;
   font-size: 20px;
@@ -244,16 +257,11 @@
   transition: transform 10ms ease-in-out;
 }
 
-.ghost--off {
-  color: grey
-}
-
-
-
 
 
 
 /* ===== BOOKING CONFIRMATION MODAL ===== */
+
 .booking-confirm-modal {
     display: flex;
     flex-direction: column;
@@ -263,6 +271,7 @@
     width: 400px;
     margin-bottom: 8px;
 }
+
 
 .booking-confirm-modal img {
     width: 350px;
@@ -281,4 +290,95 @@
 .booking-confirm__checkout {
     width: 300px;
     margin: 8px;
+}
+
+
+.ghost--off {
+  color: grey
+}
+
+
+.ghost-rating__container {
+  margin: 10px;
+}
+
+.ghost-rating__container > * {
+  font-size: 18px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.ghost-rating__container > *:hover {
+  text-shadow: 0 0 2px orange;
+}
+
+.ghost--on {
+  color: black
+}
+
+
+/* ===== AMENITIES AND REVIEW BUTTONS ===== */
+
+
+.show-amenities-container {
+  margin-top: 24px;
+}
+
+.show-amenities-button {
+  font-family: "Roboto", sans-serif;
+  color: black;
+  background-color: white;
+  border-color: 1px solid black;
+  padding: 13px 23px;
+  border-radius: 8px;
+  width: auto;
+  text-align: center;
+  font-size: 16px;
+}
+
+.show-amenities-button:hover {
+  background-color: #f7f7f7;
+}
+
+
+.review-popup-container {
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.write-review-button {
+  font-family: "Roboto", sans-serif;
+  background-color: white;
+  border-color: 1px solid black;
+  margin: auto;
+  padding: 13px 23px;
+  border-radius: 8px;
+  width: auto;
+  text-align: center;
+  font-size: 16px;
+}
+
+.write-review-button:hover {
+  background-color: #f7f7f7;
+}
+
+
+.show-all-reviews-container {
+  margin-top: 24px;
+}
+
+.show-all-reviews-button {
+  font-family: "Roboto", sans-serif;
+  background-color: white;
+  border-color: 1px solid black;
+  margin: auto;
+  padding: 13px 23px;
+  border-radius: 8px;
+  width: auto;
+  text-align: center;
+  font-size: 16px;
+}
+
+.show-all-reviews-button:hover {
+  background-color: #f7f7f7;
 }

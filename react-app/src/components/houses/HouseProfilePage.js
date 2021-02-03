@@ -7,6 +7,11 @@ import AmenitiesList from './AmenitiesList';
 import Rating from './Rating'
 
 
+import ReviewsList from './ReviewsList'
+import WriteHouseReview from './WriteReview'
+import ReviewPopup from './ReviewPopup'
+
+
 function Title({ house }) {
   return (
     <div className="house-profile__title">
@@ -61,13 +66,14 @@ function Location({ house }) {
 }
 
 
-// =========== MAIN PAGE COMPONENT =========== //
-const HouseProfilePage = () => {
+
+const HouseProfilePage = ({ user, authenticated, setAuthenticated }) => {
   const { id } = useParams();
   const history = useHistory();
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [house, setHouse] = useState(null);
+
 
   useEffect(() => {
 
@@ -77,12 +83,17 @@ const HouseProfilePage = () => {
       setHouse(body)
       setIsLoaded(true)
     }
+
+
     getHouse()
+
   }, [id])
 
   const handleRedirect = () => {
     history.push('/listings')
   }
+
+  // console.log(house.reviews)
 
   return (
     <div className="house-profile__body">
@@ -124,6 +135,15 @@ const HouseProfilePage = () => {
           </div>
           <div className='house-profile__body-bottom'>
             {/* Reviews */}
+            <div>
+              <h3 className='house-profile__section-title'>Reviews</h3>
+              <ReviewsList house={house}/>
+            </div>
+            <div className="review-popup-container">
+              {/* <WriteHouseReview user={authenticated} /> */}
+              <ReviewPopup user={user} authenticated={authenticated} setAuthenticated={setAuthenticated}/>
+            </div>
+            {/* <div>HERE'S ALL THE REVIEWS!</div> */}
             {/* <div reviews={house.reviews}>HERES ALL THE REVIEWS!</div> */}
             {/* Location */}
             <div>
@@ -133,8 +153,9 @@ const HouseProfilePage = () => {
             {/* Host Bio */}
           </div>
         </>
-      )}
-    </div>
+      )
+      }
+    </div >
   )
 }
 

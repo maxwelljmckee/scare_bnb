@@ -24,4 +24,5 @@ const ListingsIdx = () => {
   )
 }
 
+
 export default ListingsIdx;

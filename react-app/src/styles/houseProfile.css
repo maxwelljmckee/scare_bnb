@@ -234,7 +234,7 @@
   height: 35px;
   margin: 5px;
   padding: 5px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .booking-card__submit button:hover,

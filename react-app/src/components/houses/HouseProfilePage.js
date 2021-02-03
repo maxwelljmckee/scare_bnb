@@ -67,23 +67,21 @@ function Location({ house }) {
 
 
 
-const HouseProfilePage = ({ user }) => {
+const HouseProfilePage = ({ user, authenticated, setAuthenticated }) => {
   const { id } = useParams();
   const history = useHistory();
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [house, setHouse] = useState(null);
-  // const [houseReviews, setHouseReviews] = useState([]);
+
 
   useEffect(() => {
 
     const getHouse = async () => {
       const response = await fetch(`/api/houses/${id}`)
       const body = await response.json()
-      console.log(body)
       setHouse(body)
       setIsLoaded(true)
-      console.log(body)
     }
 
 
@@ -143,7 +141,7 @@ const HouseProfilePage = ({ user }) => {
             </div>
             <div>
               {/* <WriteHouseReview user={authenticated} /> */}
-              <ReviewPopup user={user}/>
+              <ReviewPopup user={user} authenticated={authenticated} setAuthenticated={setAuthenticated}/>
             </div>
             {/* <div>HERE'S ALL THE REVIEWS!</div> */}
             {/* <div reviews={house.reviews}>HERES ALL THE REVIEWS!</div> */}

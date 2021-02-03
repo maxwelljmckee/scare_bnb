@@ -21,9 +21,8 @@ const WriteHouseReview = ({ user }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        
         const newReview = {
-            // user,
-            // userId: user.id,
             userId: user.id,
             house_id: id,
             rating: rating,

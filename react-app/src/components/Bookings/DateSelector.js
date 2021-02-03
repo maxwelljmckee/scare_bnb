@@ -4,37 +4,77 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
 import { context } from '../../App';
+import LoginForm from '../SplashPage/auth/LoginFormModal/LoginForm';
+import { Dialog } from '@material-ui/core'
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import { authenticate } from '../../services/auth';
 
 
 const DateSelector = ({ house }) => {
-  const user = useContext(context);
-  const history = useHistory()
+  const userData = useContext(context);
+  const {authenticated, setAuthenticated} = userData
+  const history = useHistory();
 
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [numGuests, setNumGuests] = useState('');
 
+  // MODAL SETTINGS
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+  /////////////////
+
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const newBooking = {
-      houseId: house.id,
-      guestId: user.id,
-      checkin: startDate,
-      checkout: endDate,
-      numGuests
-    }
+    if (!authenticated) {
+      handleClickOpen()
+    } else {
 
-    const res = await fetch('/api/bookings/create', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newBooking)
-    })
-    history.push('/listings')
+
+      // CREATE CONFIRMATION MODAL BEFORE SENDING POST REQUEST
+      // ALSO DEBUG REDIRECT TO '/'
+      
+
+      // const newBooking = {
+      //   houseId: house.id,
+      //   guestId: authenticated.id,
+      //   checkin: startDate,
+      //   checkout: endDate,
+      //   numGuests
+      // }
+  
+      // const res = await fetch('/api/bookings/create', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(newBooking)
+      // })
+      console.log('stuffnstuff');
+    }
   }
 
   return (
+    <>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+      >
+        <DialogContent>
+          <LoginForm 
+            authenticated={authenticated} 
+            setAuthenticated={setAuthenticated} 
+            onClose={handleClose} />
+        </DialogContent>
+      </Dialog>
       <form className='date-selector__container' onSubmit={handleSubmit}>
         <DatePicker
           selected={startDate}
@@ -69,6 +109,7 @@ const DateSelector = ({ house }) => {
           <button type='submit'>Book a Reservation</button>
         </div>
       </form>
+    </>
   );
 };
 

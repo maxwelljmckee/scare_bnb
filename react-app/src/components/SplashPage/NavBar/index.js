@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import UserMenu from './UserMenu'
+import DevDropDown from "./DevDropDown"
 
 import spookyBoi from '../../../media/logo-full-black.png'
 
@@ -15,8 +16,21 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
 
       </div>
       <div className="navbar__center">
-        <div style={{ width: "300px", height: "40px", borderRadius: "20px", border: "1px solid black", textAlign: "center" }}> Search Bar Placeholder</div>
-
+        <DevDropDown />
+        {/* <div>Meet the Devs: </div> */}
+        {/* <div style={{ width: "300px", height: "40px", borderRadius: "20px", border: "1px solid black", textAlign: "center" }}> Meet the Devs!</div>
+        <Link className="nav-devs" to="">
+          <p>Sam Stark</p>
+        </Link>
+        <Link className="nav-devs" to="">
+          <p>Maxwell McKee</p>
+        </Link>
+        <Link className="nav-devs" to="">
+          <p>Peter Jesse</p>
+        </Link>
+        <Link className="nav-devs" to="">
+          <p>Mathias Anderson</p>
+  </Link> */}
       </div>
       <div className="navbar__right">
         {authenticated && (

@@ -10,7 +10,7 @@ const BookingCard = ({ house }) => {
       <div className='booking-card__container'>
         <div className='booking-card__flex-group-1'>
           <h3><span>${house.price}</span> / night</h3>
-          <Rating house={house} />
+          <Rating reviews={house.reviews} />
         </div>
         <DateSelector house={house} />
       </div>

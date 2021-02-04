@@ -18,7 +18,7 @@ function Title({ house }) {
       {/* Location - Name */}
       <span> {/* {house.city}, {house.state} - */} {house.name}</span>
       {/* Rating */}
-      <Rating house={house} />
+      <Rating reviews={house.reviews} />
       {/* Location? */}
 
     </div>

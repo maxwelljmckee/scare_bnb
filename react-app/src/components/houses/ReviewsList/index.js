@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 
-import { Dialog, DialogContent, DialogTitle } from '@material-ui/core'
+import { Dialog, DialogContent, DialogTitle } from '@material-ui/core';
+import Rating from '../Rating';
 
 
 
 function ListingReview({ review }) {
-
-
     return (
         <div className='review-listing'>
             <div className="user-review-info">
+                <Rating rating={review.rating} />
                 <div className="user-review-comment">
                     <span>{review.comment}</span>
                 </div>
                 <div className="user-info">
-                    <img className="user-review-profile-pic" src={review.user.profile_pic_url}/>
+                    {/* <img className="user-review-profile-pic" src={review.user.profile_pic_url}/> */}
                     <span>- {review.user.first_name}</span>
                 </div>
             </div>

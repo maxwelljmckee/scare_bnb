@@ -80,6 +80,21 @@
   font-weight: bold;
 }
 
+.house-profile__title .rating-container i {
+  margin: 0 5px;
+  font-size: 25px;
+  color: rgb(43, 43, 255);
+}
+
+.rating-container .average-rating {
+  display: flex;
+  align-items: flex-end;
+}
+
+.rating-container .average-rating i {
+  margin-right: 5px;
+}
+
 .house-profile__subtitle {
   height: 60px;
   width: 100%;
@@ -207,6 +222,12 @@
 .booking-card__flex-group-1 span {
   font-weight: bold;
   font-size: 25px;
+}
+
+.booking-card__flex-group-1 .rating-container i {
+  color: rgb(43, 43, 255);
+  margin-right: 5px;
+  font-size: 20px;
 }
 
 .date-selector__container {
@@ -412,4 +433,9 @@
 
 .user-info {
   margin-top: 20px;
+}
+
+.user-review-info .rating-container i {
+  color: rgb(43, 43, 255);
+  margin: 0 2px;
 }

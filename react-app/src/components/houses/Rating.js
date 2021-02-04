@@ -16,7 +16,7 @@ const Rating = ({ reviews, rating }) => {
       {average > 0 ?
         <div className='average-rating'>
           <i className="fas fa-ghost"></i>
-          <div>- {average}</div>
+          - {average}
         </div>
         :
         <>

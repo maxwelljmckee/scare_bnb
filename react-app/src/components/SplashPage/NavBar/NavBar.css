@@ -78,6 +78,7 @@ nav {
   color: black;
   
   text-decoration: none;
+  min-width: 100px;
 }
 
 .navbar__link:hover {
@@ -93,6 +94,8 @@ nav {
   border-radius: 20px;
   padding: 4px 5px;
   cursor: pointer;
+
+  min-width: 120px;
 }
 
 .github-button:hover {

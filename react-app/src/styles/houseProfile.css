@@ -93,6 +93,7 @@
 
 .rating-container .average-rating i {
   margin-right: 5px;
+  /* font-size: 20px; */
 }
 
 .house-profile__subtitle {
@@ -216,12 +217,17 @@
 .booking-card__flex-group-1 {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .booking-card__flex-group-1 span {
   font-weight: bold;
   font-size: 25px;
+}
+
+.booking-card__flex-group-1 h3 {
+  font-size: 20px;
+  margin-bottom: 0;
 }
 
 .booking-card__flex-group-1 .rating-container i {

@@ -44,6 +44,10 @@
     object-fit: cover;
 }
 
+.listings__listing-card i {
+    font-size: 20px;
+}
+
 .listings__listing-card h2 {
     font-size: 20px;
     padding: 5px;

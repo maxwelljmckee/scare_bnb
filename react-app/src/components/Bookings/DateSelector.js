@@ -37,7 +37,6 @@ const DateSelector = ({ house }) => {
     if (!authenticated) {
       setOpenLogin(true);
     } else {
-      
       setOpenConfirm(true);
     }
   }

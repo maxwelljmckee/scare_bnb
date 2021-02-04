@@ -1,10 +1,12 @@
 import os
 
 from flask import Blueprint, jsonify, session, request
-from app.models import db, House, State
+from app.models import db, House, State, Review
 from app.forms import HouseCreateForm
 
 from .utils.awsS3 import upload_file_to_s3
+
+from datetime import datetime
 
 houses_routes = Blueprint('houses', __name__)
 
@@ -57,17 +59,11 @@ def create_house():
         db.session.add(house)
         db.session.commit()
 
-        print(house.id)
-
         house_pic = request.files['housePic']
-
-        print(house_pic)
 
         filename = f"house-pic-{house.id}.jpg"
 
         url = upload_file_to_s3(house_pic, filename)
-
-        print(url)
 
         house.house_pic_url = url
 
@@ -94,9 +90,33 @@ def get_all_houses():
     # db.session.commit()
 
 
-@houses_routes.route('/<id>', methods=['GET'])
+@houses_routes.route('/<int:id>', methods=['GET'])
 def get_house_details(id):
     house = House.query.get(id)
+    # reviews = Review.query.filter_by(house_id=id).all()
+    # house["reviewsList"] = reviews
+    # reviews = [review.to_dict() for review in reviews]
+
     if house:
-        return house.to_dict()
+        house = house.to_dict()
+        # house["reviews"] = reviews[::-1]
+        return house
+
     return {'errors': ['The requested house does not exist']}, 404
+
+
+@houses_routes.route('/<id>/reviews', methods=['POST'])
+def write_review(id):
+    review = Review(
+        user_id= int(request.json.get('userId')),
+        house_id= int(id),
+        rating= int(request.json.get('rating')),
+        comment= request.json.get('comment'),
+        created_at=datetime.now(),
+        updated_at=datetime.now()
+    )
+
+    db.session.add(review)
+    db.session.commit()
+
+    return review.to_dict()

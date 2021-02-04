@@ -80,6 +80,22 @@
   font-weight: bold;
 }
 
+.house-profile__title .rating-container i {
+  margin: 0 5px;
+  font-size: 25px;
+  color: rgb(192, 192, 192);
+}
+
+.rating-container .average-rating {
+  display: flex;
+  align-items: flex-end;
+}
+
+.rating-container .average-rating i {
+  margin-right: 5px;
+  /* font-size: 20px; */
+}
+
 .house-profile__subtitle {
   height: 60px;
   width: 100%;
@@ -131,6 +147,15 @@
 
 .house-profile__description {
   line-height: 1.6em;
+}
+
+
+.user-review-profile-pic {
+  border-radius: 16px;
+}
+
+.reviews-dialog-title {
+  padding-top: 0;
 }
 
 .amenity-item {
@@ -192,12 +217,23 @@
 .booking-card__flex-group-1 {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .booking-card__flex-group-1 span {
   font-weight: bold;
   font-size: 25px;
+}
+
+.booking-card__flex-group-1 h3 {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.booking-card__flex-group-1 .rating-container i {
+  color: rgb(192, 192, 192);
+  margin-right: 5px;
+  font-size: 20px;
 }
 
 .date-selector__container {
@@ -234,7 +270,7 @@
   height: 35px;
   margin: 5px;
   padding: 5px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .booking-card__submit button:hover,
@@ -244,16 +280,11 @@
   transition: transform 10ms ease-in-out;
 }
 
-.ghost--off {
-  color: grey
-}
-
-
-
 
 
 
 /* ===== BOOKING CONFIRMATION MODAL ===== */
+
 .booking-confirm-modal {
     display: flex;
     flex-direction: column;
@@ -263,6 +294,7 @@
     width: 400px;
     margin-bottom: 8px;
 }
+
 
 .booking-confirm-modal img {
     width: 350px;
@@ -281,4 +313,135 @@
 .booking-confirm__checkout {
     width: 300px;
     margin: 8px;
+}
+
+
+.ghost--off {
+  color: grey
+}
+
+
+.ghost-rating__container {
+  margin: 10px;
+}
+
+.ghost-rating__container > * {
+  font-size: 18px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.ghost-rating__container > *:hover {
+  text-shadow: 0 0 2px orange;
+}
+
+.ghost--on {
+  color: rgb(43, 43, 255);
+  font-size: 30px;
+  margin: 0 5px;
+}
+
+.ghost--off {
+  font-size: 30px;
+  margin: 0 5px;
+}
+
+
+/* ===== AMENITIES AND REVIEW BUTTONS ===== */
+
+
+.show-amenities-container {
+  margin-top: 24px;
+}
+
+.show-amenities-button {
+  font-family: "Roboto", sans-serif;
+  color: black;
+  background-color: white;
+  border-color: 1px solid black;
+  padding: 13px 23px;
+  border-radius: 8px;
+  width: auto;
+  text-align: center;
+  font-size: 16px;
+}
+
+.show-amenities-button:hover {
+  background-color: #f7f7f7;
+}
+
+
+.review-popup-container {
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.write-review-button {
+  font-family: "Roboto", sans-serif;
+  background-color: white;
+  border-color: 1px solid black;
+  margin: auto;
+  padding: 13px 23px;
+  border-radius: 8px;
+  width: auto;
+  text-align: center;
+  font-size: 16px;
+}
+
+.write-review-button:hover {
+  background-color: #f7f7f7;
+}
+
+
+.show-all-reviews-container {
+  margin-top: 24px;
+}
+
+.show-all-reviews-button {
+  font-family: "Roboto", sans-serif;
+  background-color: white;
+  border-color: 1px solid black;
+  margin: auto;
+  padding: 13px 23px;
+  border-radius: 8px;
+  width: auto;
+  text-align: center;
+  font-size: 16px;
+}
+
+.show-all-reviews-button:hover {
+  background-color: #f7f7f7;
+}
+
+
+/* ===== RREVIEWS CONTAINER ===== */
+
+.review-listing {
+  margin-top: 25px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+
+
+.user-review-info {
+  margin: 20px;
+}
+
+.review-listing {
+  width: 500px;
+}
+
+
+.user-review-comment {
+  margin-top: 20px;
+}
+
+.user-info {
+  margin-top: 20px;
+}
+
+.user-review-info .rating-container i {
+  color: rgb(192, 192, 192);
+  margin: 0 2px;
 }

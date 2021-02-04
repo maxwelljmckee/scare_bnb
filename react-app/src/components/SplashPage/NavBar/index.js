@@ -8,6 +8,16 @@ import spookyBoi from '../../../media/logo-full-black.png'
 
 import './NavBar.css'
 
+const GitHubButton = () => {
+  return (
+    <div className='github-button'>
+      <i style={{ marginRight: "5px", fontSize: '164x',  }} className="fab fa-github"></i>
+      <a href='https://github.com/maxwelljmckee/scare_bnb' target='_blank'>
+        See the Code!</a>
+    </div>
+  )
+}
+
 const NavBar = ({ authenticated, setAuthenticated }) => {
   return (
     <nav>
@@ -18,6 +28,7 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
       {/* <div className="navbar__center">
       </div> */}
       <div className="navbar__right">
+        <GitHubButton />
         <DevDropDown />
         {authenticated && (
           <Link className="navbar__link" to="/listings/create">

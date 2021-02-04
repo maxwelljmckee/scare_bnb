@@ -44,7 +44,7 @@ export default function App() {
             <CreateHouseForm user={authenticated} />
           </ProtectedRoute>
           <Route path='/listings/:id' exact={true}>
-            <HouseProfilePage />
+            <HouseProfilePage user={authenticated} authenticated={authenticated} setAuthenticated={setAuthenticated}/>
           </Route>
           <Route path="/listings">
             <ListingsIdx />

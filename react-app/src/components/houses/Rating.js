@@ -2,8 +2,8 @@ import React from 'react';
 
 
 const Rating = ({ reviews, rating }) => {
-  let average;
-  if (reviews) {
+  let average = 0;
+  if (reviews && reviews.length) {
     (() => {
       let sum = 0.0;
       reviews.forEach(review => sum += review.rating);
@@ -13,11 +13,17 @@ const Rating = ({ reviews, rating }) => {
 
   return (
     <div className='rating-container'>
-      {average &&
+      {average > 0 ?
         <div className='average-rating'>
           <i className="fas fa-ghost"></i>
           <div>- {average}</div>
         </div>
+        :
+        <>
+        {!rating &&
+          <div>Not Yet Rated</div>
+        }
+        </>
       }
       {rating >=1 &&
         <i className="fas fa-ghost"></i>

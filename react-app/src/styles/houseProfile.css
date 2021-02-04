@@ -83,7 +83,7 @@
 .house-profile__title .rating-container i {
   margin: 0 5px;
   font-size: 25px;
-  color: rgb(43, 43, 255);
+  color: rgb(192, 192, 192);
 }
 
 .rating-container .average-rating {
@@ -225,7 +225,7 @@
 }
 
 .booking-card__flex-group-1 .rating-container i {
-  color: rgb(43, 43, 255);
+  color: rgb(192, 192, 192);
   margin-right: 5px;
   font-size: 20px;
 }
@@ -436,6 +436,6 @@
 }
 
 .user-review-info .rating-container i {
-  color: rgb(43, 43, 255);
+  color: rgb(192, 192, 192);
   margin: 0 2px;
 }

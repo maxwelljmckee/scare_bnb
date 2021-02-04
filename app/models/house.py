@@ -111,7 +111,7 @@ class House(db.Model):
             "latitude": self.latitude,
             "longitude": self.longitude,
             "state": self.state.state_name,
-            # "reviews": self.reviews.to_dict(),
+            "reviews": [review.to_dict() for review in self.reviews],
             # "bookings": self.bookings.to_dict(),
             # "tags": self.tags.to_dict(),
             "amenities": [x.to_dict() for x in self.amenities]

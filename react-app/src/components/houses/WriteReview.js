@@ -74,6 +74,7 @@ const WriteHouseReview = ({ user, handleClose, reviews, setReviews }) => {
                         placeholder='Write your review...'
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
+                        required
                     />
                 </div>
                 <div className="write-review-submit-container">

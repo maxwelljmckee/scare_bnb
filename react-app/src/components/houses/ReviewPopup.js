@@ -25,7 +25,7 @@ const ReviewPopup = (props) => {
         e.preventDefault()
         if (!authenticated) {
             setOpenLogin(true)
-        }else {
+        } else {
             setOpen(true)
         }
     };

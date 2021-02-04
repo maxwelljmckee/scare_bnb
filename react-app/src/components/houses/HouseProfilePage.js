@@ -138,9 +138,9 @@ const HouseProfilePage = ({ user, authenticated, setAuthenticated }) => {
             {/* Reviews */}
             <div>
               <h3 className='house-profile__section-title'>Reviews</h3>
-              {reviews &&
-                <ReviewsList reviews={reviews}/>
-              }
+                {reviews &&
+                  <ReviewsList reviews={reviews}/>
+                }
             </div>
             <div className="review-popup-container">
               {/* <WriteHouseReview user={authenticated} /> */}

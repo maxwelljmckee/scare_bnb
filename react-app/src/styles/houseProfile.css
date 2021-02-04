@@ -133,10 +133,6 @@
   line-height: 1.6em;
 }
 
-.review-listing {
-  padding: 7px 0;
-  font-size: 20px;
-}
 
 .user-review-profile-pic {
   border-radius: 16px;
@@ -388,4 +384,32 @@
 
 .show-all-reviews-button:hover {
   background-color: #f7f7f7;
+}
+
+
+/* ===== RREVIEWS CONTAINER ===== */
+
+.review-listing {
+  margin-top: 25px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+
+
+.user-review-info {
+  margin: 20px;
+}
+
+.review-listing {
+  width: 500px;
+}
+
+
+.user-review-comment {
+  margin-top: 20px;
+}
+
+.user-info {
+  margin-top: 20px;
 }

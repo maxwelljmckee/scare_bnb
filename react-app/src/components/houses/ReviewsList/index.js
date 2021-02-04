@@ -9,12 +9,14 @@ function ListingReview({ review }) {
 
     return (
         <div className='review-listing'>
-            <div className="user-info">
-                <img className="user-review-profile-pic" src={review.user.profile_pic_url}/>
-                <span>{review.user.first_name}</span>
-            </div>
-            <div className="user-review-comment">
-                <span>{review.comment}</span>
+            <div className="user-review-info">
+                <div className="user-review-comment">
+                    <span>{review.comment}</span>
+                </div>
+                <div className="user-info">
+                    <img className="user-review-profile-pic" src={review.user.profile_pic_url}/>
+                    <span>- {review.user.first_name}</span>
+                </div>
             </div>
         </div>
     )
@@ -64,7 +66,7 @@ export default function ReviewsList({ reviews }) {
 
     if (reviews.length <= 6) {
         return (
-            <div>
+            <div className="house-reviews-container">
                 {mainReviews.map(review => {
                     return <ListingReview key={`ListingReview-${review.id}`} review={review}/>
                 })}
@@ -74,9 +76,11 @@ export default function ReviewsList({ reviews }) {
 
     return (
         <div>
-            {mainReviews.map(review => {
-                return <ListingReview key={`ListingReview-${review.id}`} review={review}/>
-            })}
+            <div className="house-reviews-container">
+                {mainReviews.map(review => {
+                    return <ListingReview key={`ListingReview-${review.id}`} review={review}/>
+                })}
+            </div>
 
             {reviews.length > 6 && (
                 <div className="show-all-reviews-container">

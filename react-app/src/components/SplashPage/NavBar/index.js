@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import UserMenu from './UserMenu'
+import DevDropDown from "./DevDropDown"
 
 import spookyBoi from '../../../media/logo-full-black.png'
 
@@ -14,11 +15,10 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
         <Link to="/"> <img className="navbar__logo" src={spookyBoi} /> </Link>
 
       </div>
-      <div className="navbar__center">
-        <div style={{ width: "300px", height: "40px", borderRadius: "20px", border: "1px solid black", textAlign: "center" }}> Search Bar Placeholder</div>
-
-      </div>
+      {/* <div className="navbar__center">
+      </div> */}
       <div className="navbar__right">
+        <DevDropDown />
         {authenticated && (
           <Link className="navbar__link" to="/listings/create">
             Become a host

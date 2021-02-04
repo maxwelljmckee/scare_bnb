@@ -93,13 +93,13 @@ def get_all_houses():
 @houses_routes.route('/<int:id>', methods=['GET'])
 def get_house_details(id):
     house = House.query.get(id)
-    reviews = Review.query.filter_by(house_id=id).all()
+    # reviews = Review.query.filter_by(house_id=id).all()
     # house["reviewsList"] = reviews
-    reviews = [review.to_dict() for review in reviews]
+    # reviews = [review.to_dict() for review in reviews]
 
     if house:
         house = house.to_dict()
-        house["reviews"] = reviews[::-1]
+        # house["reviews"] = reviews[::-1]
         return house
 
     return {'errors': ['The requested house does not exist']}, 404

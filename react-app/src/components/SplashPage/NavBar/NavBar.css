@@ -74,13 +74,41 @@ nav {
   /* font-weight: 600; */
   padding: 10px;
   border-radius: 16px;
-
+  
   color: black;
-
+  
   text-decoration: none;
 }
 
 .navbar__link:hover {
   background-color: whitesmoke;
   cursor: pointer;
+}
+
+
+.github-button {
+  font-family: 'Roboto';
+  font-size: 14px;
+  border: 1px solid lightgrey;
+  border-radius: 20px;
+  padding: 4px 5px;
+  cursor: pointer;
+}
+
+.github-button:hover {
+  box-shadow: 0 0 5px rgba(0, 0 , 0, .4);
+  transition: box-shadow 0.3s;
+}
+
+.github-button a {
+  color: black;
+}
+
+.github-button a:hover {
+  text-decoration: none;
+}
+
+.github-button a:focus,
+.github-button a:active {
+  outline: none
 }

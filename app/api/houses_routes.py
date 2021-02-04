@@ -99,7 +99,7 @@ def get_house_details(id):
 
     if house:
         house = house.to_dict()
-        house["reviews"] = reviews
+        house["reviews"] = reviews[::-1]
         return house
 
     return {'errors': ['The requested house does not exist']}, 404

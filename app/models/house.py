@@ -115,5 +115,4 @@ class House(db.Model):
             # "bookings": self.bookings.to_dict(),
             # "tags": self.tags.to_dict(),
             "amenities": [x.to_dict() for x in self.amenities]
-
         }

@@ -16,14 +16,18 @@ const ReviewPopup = (props) => {
 
     const user = props.user
 
-
     const handleCloseLogin = () => {
         setOpenLogin(false)
+        setOpen(true)
     }
 
     const handleOpenClick = (e) => {
         e.preventDefault()
-        setOpen(true)
+        if (!authenticated) {
+            setOpenLogin(true)
+        }else {
+            setOpen(true)
+        }
     };
 
     const handleCloseClick = (e) => {
@@ -37,8 +41,8 @@ const ReviewPopup = (props) => {
             <>
             <button className="write-review-button" onClick={handleOpenClick}>Write a Review</button>
             <Dialog
-            open={open}
-            onClose={handleCloseClick}
+            open={openLogin}
+            onClose={handleCloseLogin}
             >
                 <DialogContent>
                     <LoginForm {...props} onClose={handleCloseLogin}/>
@@ -54,7 +58,7 @@ const ReviewPopup = (props) => {
             <button className="write-review-button" onClick={handleOpenClick}>Write a Review</button>
         </div>
         <Dialog open={open} onClose={handleCloseClick}>
-            <WriteHouseReview user={user}/>
+            <WriteHouseReview reviews={props.reviews} setReviews={props.setReviews} user={user} handleClose={handleCloseClick} />
         </Dialog>
         </>
     )

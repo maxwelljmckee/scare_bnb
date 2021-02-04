@@ -313,7 +313,14 @@
 }
 
 .ghost--on {
-  color: black
+  color: rgb(43, 43, 255);
+  font-size: 30px;
+  margin: 0 5px;
+}
+
+.ghost--off {
+  font-size: 30px;
+  margin: 0 5px;
 }
 
 

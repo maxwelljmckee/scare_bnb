@@ -73,15 +73,16 @@ const HouseProfilePage = ({ user, authenticated, setAuthenticated }) => {
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [house, setHouse] = useState(null);
+  const [reviews, setReviews] = useState(null);
 
 
   useEffect(() => {
-
     const getHouse = async () => {
       const response = await fetch(`/api/houses/${id}`)
       const body = await response.json()
       setHouse(body)
       setIsLoaded(true)
+      setReviews(body.reviews)
     }
 
 
@@ -137,11 +138,13 @@ const HouseProfilePage = ({ user, authenticated, setAuthenticated }) => {
             {/* Reviews */}
             <div>
               <h3 className='house-profile__section-title'>Reviews</h3>
-              <ReviewsList house={house}/>
+              {reviews &&
+                <ReviewsList reviews={reviews}/>
+              }
             </div>
             <div className="review-popup-container">
               {/* <WriteHouseReview user={authenticated} /> */}
-              <ReviewPopup user={user} authenticated={authenticated} setAuthenticated={setAuthenticated}/>
+              <ReviewPopup user={user} authenticated={authenticated} setAuthenticated={setAuthenticated} reviews={reviews} setReviews={setReviews} />
             </div>
             {/* <div>HERE'S ALL THE REVIEWS!</div> */}
             {/* <div reviews={house.reviews}>HERES ALL THE REVIEWS!</div> */}

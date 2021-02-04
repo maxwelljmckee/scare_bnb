@@ -4,20 +4,20 @@ import { useHistory, useParams } from 'react-router-dom';
 import GhostRating from './GhostRating'
 
 
-const WriteHouseReview = ({ user }) => {
+const WriteHouseReview = ({ user, handleClose, reviews, setReviews }) => {
     const history = useHistory()
     const [errors, setErrors] = useState([]);
     const { id } = useParams()
 
 
     // SET STATE FOR FORM FIELDS
-    const [rating, setRating] = useState('');
+    const [rating, setRating] = useState(1);
     const [comment, setComment] = useState('');
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-    }, [])
+    // }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -29,13 +29,16 @@ const WriteHouseReview = ({ user }) => {
             comment: comment
         };
 
-        await fetch(`/api/houses/${id}/reviews`, {
+        const res = await fetch(`/api/houses/${id}/reviews`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newReview)
         });
+        const data = await res.json()
 
-        history.push('/');
+        // history.push('/');
+        handleClose(e)
+        setReviews([data, ...reviews])
         return
     }
 

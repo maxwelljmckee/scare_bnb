@@ -13,7 +13,7 @@ export default function DevDropDown() {
         <Dropdown.Menu style={{ backgroundColor: "white", color: "black" , fontFamily: "Roboto",borderRadius: "10px" }}>
           <Dropdown.Item target='_blank' href="https://github.com/pgjessee/">Peter Jessee</Dropdown.Item>
           <Dropdown.Item target='_blank' href="https://mmckee-dev.com/">Maxwell McKee</Dropdown.Item>
-          <Dropdown.Item target='_blank' href="#">Sam Stark</Dropdown.Item>
+          <Dropdown.Item target='_blank' href="https://www.samstark.me">Sam Stark</Dropdown.Item>
           <Dropdown.Item target='_blank' href="https://www.linkedin.com/in/mathias-anderson-42167b137/">Mathias Anderson</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>

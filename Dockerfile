@@ -22,7 +22,7 @@ EXPOSE 8000
 WORKDIR /var/www
 COPY . .
 COPY --from=build-stage /react-app/build/* app/static/
-COPY /react-app/public/image/* server/static/image/
+COPY /react-app/public/images/* server/static/images/
 
 # Install Python Dependencies
 RUN pip install -r requirements.txt

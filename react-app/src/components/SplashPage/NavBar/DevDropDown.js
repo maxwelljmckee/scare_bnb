@@ -14,7 +14,7 @@ export default function DevDropDown() {
           <Dropdown.Item target='_blank' href="https://pgjessee.github.io">Peter Jessee</Dropdown.Item>
           <Dropdown.Item target='_blank' href="https://mmckee-dev.com/">Maxwell McKee</Dropdown.Item>
           <Dropdown.Item target='_blank' href="https://www.samstark.me">Sam Stark</Dropdown.Item>
-          <Dropdown.Item target='_blank' href="https://www.linkedin.com/in/mathias-anderson-42167b137/">Mathias Anderson</Dropdown.Item>
+          <Dropdown.Item target='_blank' href="https://www.blewishbear.github.io/mathiasanderson.github.io/linkedin.com/in/mathias-anderson-42167b137/">Mathias Anderson</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
     </div>
